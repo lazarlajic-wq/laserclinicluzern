@@ -37,100 +37,84 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-hidden">
 
       {/* ─── HERO ─── */}
-      <section className="relative bg-dark-section overflow-hidden">
-        <div className="container mx-auto max-w-6xl px-5 md:px-12 py-12 md:py-20 lg:py-24">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left: Text + CTA */}
-            <div className="order-2 md:order-1">
-              <motion.img
-                src={logo}
-                alt="Laser Clinic Luzern"
-                className="h-12 md:h-16 mb-6 brightness-0 invert"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              />
+      <section className="bg-dark-section">
+        <div className="container mx-auto max-w-3xl px-5 md:px-12 py-16 md:py-24 lg:py-32 text-center">
+          <motion.img
+            src={logo}
+            alt="Laser Clinic Luzern"
+            className="h-24 md:h-32 lg:h-40 mx-auto mb-8 brightness-0 invert"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          />
 
-              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}
-                className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-5"
-              >
-                <Zap className="w-3.5 h-3.5 text-accent" />
-                <span className="font-body text-xs font-semibold text-primary-foreground/80 uppercase tracking-wider">
-                  80–90 % Haarreduktion in 4–6 Sitzungen
-                </span>
-              </motion.div>
+          <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}
+            className="inline-flex items-center gap-2 bg-primary-foreground/10 rounded-full px-4 py-1.5 mb-6"
+          >
+            <Zap className="w-3.5 h-3.5 text-accent" />
+            <span className="font-body text-xs font-semibold text-primary-foreground/80 uppercase tracking-wider">
+              80–90 % Haarreduktion in 4–6 Sitzungen
+            </span>
+          </motion.div>
 
-              <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1}
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-primary-foreground mb-4"
-              >
-                Schluss mit endlosen Sitzungen.{" "}
-                <span className="text-accent">Sichtbare Ergebnisse</span> – garantiert.
-              </motion.h1>
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1}
+            className="font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-primary-foreground mb-5"
+          >
+            Schluss mit endlosen Sitzungen.{" "}
+            <span className="text-accent">Sichtbare Ergebnisse</span> – garantiert.
+          </motion.h1>
 
-              <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
-                className="font-body text-primary-foreground/60 text-sm md:text-base leading-relaxed mb-6 max-w-md"
-              >
-                Laser-Haarentfernung für Männer mit med. Hochleistungslaser. Wo andere aufhören, fangen wir an.
-              </motion.p>
+          <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
+            className="font-body text-primary-foreground/60 text-sm md:text-base leading-relaxed mb-8 max-w-lg mx-auto"
+          >
+            Laser-Haarentfernung für Männer mit med. Hochleistungslaser. Wo andere aufhören, fangen wir an.
+          </motion.p>
 
-              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}
-                className="flex flex-col sm:flex-row gap-3 mb-5"
-              >
-                <Button
-                  size="lg"
-                  className="bg-accent text-accent-foreground font-body font-bold text-sm px-7 py-6 uppercase tracking-wider shadow-xl hover:bg-accent/90 transition-colors"
-                >
-                  Kostenlose Beratung starten
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-body text-sm px-7 py-6"
-                >
-                  <Phone className="w-4 h-4" />
-                  Anrufen
-                </Button>
-              </motion.div>
-
-              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
-                className="flex flex-wrap gap-x-4 gap-y-1 font-body text-xs text-primary-foreground/40"
-              >
-                <span>✓ 2'824 Behandlungen</span>
-                <span>✓ 5.0 ★ Google</span>
-                <span>✓ 8+ Jahre Erfahrung</span>
-              </motion.div>
-            </div>
-
-            {/* Right: Ermin image */}
-            <motion.div
-              className="order-1 md:order-2 relative"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+          <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}
+            className="flex flex-col sm:flex-row gap-3 justify-center mb-6"
+          >
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground font-body font-bold text-sm px-7 py-6 uppercase tracking-wider shadow-xl hover:bg-accent/90 transition-colors"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl max-h-[280px] md:max-h-[480px]">
-                <img src={erminImg} alt="Ermin – Gründer Laser Clinic Luzern" className="w-full h-[280px] md:h-[480px] object-cover object-top" />
-              </div>
-            </motion.div>
-          </div>
+              Kostenlose Beratung starten
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body text-sm px-7 py-6"
+            >
+              <Phone className="w-4 h-4" />
+              +41 76 220 82 28
+            </Button>
+          </motion.div>
+
+          <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
+            className="flex flex-wrap gap-x-4 gap-y-1 justify-center font-body text-xs text-primary-foreground/40"
+          >
+            <span>✓ 2'824 Behandlungen</span>
+            <span>✓ 5.0 ★ Google</span>
+            <span>✓ 8+ Jahre Erfahrung</span>
+          </motion.div>
         </div>
       </section>
 
-      {/* ─── PROBLEM / LÖSUNG SPLIT ─── */}
+      {/* ─── PROBLEM / LÖSUNG ─── */}
       <section className="py-16 md:py-24 px-5 md:px-12">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="text-center md:text-left"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-destructive mb-3 block">Das Problem</span>
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">Die Realität am Markt</h2>
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Die meisten Männer starten Laser mit Hoffnung – und hören frustriert auf. Nicht weil Laser nicht wirkt, sondern weil er falsch angewendet wird.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-3 inline-block text-left">
                 {["Zu viele Sitzungen (15–20)", "Schwache Laser für tiefe Haare", "Keine individuelle Strategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
@@ -143,14 +127,14 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
-              className="bg-card rounded-2xl p-8 border border-border"
+              className="bg-card rounded-2xl p-8 border border-border text-center md:text-left"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Unsere Lösung</span>
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">Was wir anders machen</h2>
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Technik, Erfahrung und Strategie – genau darauf ist unsere Behandlung ausgelegt. Ergebnisse, wo andere scheitern.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-3 inline-block text-left">
                 {["Sichtbare Resultate nach wenigen Sitzungen", "Med. Hochleistungslaser für alle Haare", "Individuelle Behandlungsstrategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -169,7 +153,7 @@ const Index = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-cta rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6"
+            className="bg-gradient-cta rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
           >
             <div>
               <h3 className="font-display text-xl md:text-2xl font-bold text-primary-foreground mb-2">
@@ -196,10 +180,10 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="relative order-2 md:order-1"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[300px] md:h-[460px] object-cover" />
+              <div className="rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md md:max-w-none">
+                <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
               </div>
-              <div className="absolute -bottom-4 -right-4 md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-4 border border-border">
+              <div className="absolute bottom-2 right-2 md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border">
                 <div className="flex items-center gap-2 mb-1">
                   <Shield className="w-4 h-4 text-primary" />
                   <span className="font-body text-xs font-bold uppercase tracking-wider">8+ Jahre Erfahrung</span>
@@ -211,7 +195,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2"
+              className="order-1 md:order-2 text-center md:text-left"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -226,7 +210,7 @@ const Index = () => {
                   Erfahrung aus 8 Jahren professioneller Laserarbeit. Keine Experimente. <strong className="text-foreground">Nur Resultate.</strong>
                 </p>
               </div>
-              <div className="flex items-center gap-3 mt-6 font-body text-sm text-muted-foreground">
+              <div className="flex items-center justify-center md:justify-start gap-3 mt-6 font-body text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
                 Zentral in Luzern – erreichbar aus Zug, Zürich & Umgebung
               </div>
@@ -242,6 +226,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="text-center md:text-left"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Technologie</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -256,9 +241,9 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="rounded-2xl overflow-hidden shadow-2xl"
+              className="rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md md:max-w-none"
             >
-              <img src={storefrontImg} alt="Laser Clinic Luzern Standort" className="w-full h-[280px] md:h-[380px] object-cover" />
+              <img src={storefrontImg} alt="Laser Clinic Luzern Standort" className="w-full h-[250px] md:h-[380px] object-cover" />
             </motion.div>
           </div>
         </div>
@@ -282,9 +267,9 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="bg-background rounded-2xl p-6 md:p-8 border border-border hover:shadow-lg transition-shadow duration-300 group"
+                className="bg-background rounded-2xl p-6 md:p-8 border border-border hover:shadow-lg transition-shadow duration-300 group text-center"
               >
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center justify-center gap-4 mb-4">
                   <span className="font-display text-4xl font-bold text-border group-hover:text-primary transition-colors">{step.num}</span>
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <step.icon className="w-5 h-5 text-primary" />
@@ -313,8 +298,8 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
-                <div className="font-display text-3xl md:text-5xl font-bold text-accent">{s.value}</div>
-                <div className="font-body text-xs md:text-sm text-primary-foreground/60 mt-2 uppercase tracking-wider">{s.label}</div>
+                <div className="font-display text-2xl md:text-5xl font-bold text-accent">{s.value}</div>
+                <div className="font-body text-[10px] md:text-sm text-primary-foreground/60 mt-2 uppercase tracking-wider">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -335,15 +320,15 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="bg-card rounded-2xl p-6 md:p-8 border border-border"
+                className="bg-card rounded-2xl p-6 md:p-8 border border-border text-center md:text-left"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-4 justify-center md:justify-start">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="w-4 h-4 text-accent fill-accent" />
                   ))}
                 </div>
                 <p className="font-body text-muted-foreground leading-relaxed mb-4 italic">"{r.text}"</p>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 justify-center md:justify-start">
                   <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center font-display font-bold text-sm text-primary">
                     {r.name[0]}
                   </div>
@@ -379,9 +364,9 @@ const Index = () => {
 
       {/* ─── FINAL CTA ─── */}
       <section className="py-16 md:py-24 px-5 md:px-12">
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div>
+            <div className="text-center md:text-left">
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Dauerhaft haarfrei beginnt mit einer Nachricht.
@@ -389,7 +374,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6">
                 Schreib uns auf WhatsApp für eine kostenlose Laser-Beratung. Du erfährst direkt:
               </p>
-              <ul className="font-body space-y-3 mb-8">
+              <ul className="font-body space-y-3 mb-8 inline-block text-left">
                 {["Wie viele Sitzungen du brauchst", "Welche Ergebnisse realistisch sind", "Ob Laser bei dir wirklich funktioniert"].map((t, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm">
                     <ChevronRight className="w-4 h-4 text-primary flex-shrink-0" />
@@ -398,19 +383,20 @@ const Index = () => {
                 ))}
               </ul>
               <p className="font-body text-sm text-muted-foreground mb-6">Diskret. Ehrlich. Unverbindlich.</p>
-              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors">
-                Kostenlose Beratung starten
-                <MessageCircle className="w-4 h-4 ml-1" />
-              </Button>
+              <div className="flex justify-center md:justify-start">
+                <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors">
+                  Kostenlose Beratung starten
+                  <MessageCircle className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
               <p className="font-body text-xs text-muted-foreground mt-3 italic">Antwort meist innerhalb weniger Minuten.</p>
             </div>
-            {/* Storefront image here instead of duplicate ermin */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="rounded-2xl overflow-hidden shadow-2xl"
+              className="rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md md:max-w-none"
             >
-              <img src={storefrontImg} alt="Laser Clinic Luzern" className="w-full h-[300px] md:h-[420px] object-cover" />
+              <img src={erminImg} alt="Ermin – Laser Clinic Luzern" className="w-full h-[300px] md:h-[420px] object-cover object-top" />
             </motion.div>
           </div>
         </div>
@@ -419,9 +405,9 @@ const Index = () => {
       {/* ─── FOOTER ─── */}
       <footer className="bg-dark-section py-12 md:py-16 px-5 md:px-12">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start text-center md:text-left">
             <div>
-              <img src={logo} alt="Laser Clinic Luzern" className="h-14 brightness-0 invert mb-4" />
+              <img src={logo} alt="Laser Clinic Luzern" className="h-14 brightness-0 invert mb-4 mx-auto md:mx-0" />
               <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">
                 Dein Ziel: sichtbar haarfrei in kurzer Zeit.
               </p>
@@ -429,9 +415,9 @@ const Index = () => {
             <div>
               <h4 className="font-display font-semibold text-primary-foreground mb-4">Kontakt</h4>
               <div className="space-y-2 font-body text-sm text-primary-foreground/60">
-                <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> +41 76 220 82 28</div>
-                <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Gerliswilstrasse 98, 6020 Emmenbrücke</div>
-                <div className="flex items-center gap-2"><span className="text-accent">✉</span> info@laserclinicluzern.ch</div>
+                <div className="flex items-center justify-center md:justify-start gap-2"><Phone className="w-4 h-4 text-accent" /> +41 76 220 82 28</div>
+                <div className="flex items-center justify-center md:justify-start gap-2"><MapPin className="w-4 h-4 text-accent" /> Gerliswilstrasse 98, 6020 Emmenbrücke</div>
+                <div className="flex items-center justify-center md:justify-start gap-2"><span className="text-accent">✉</span> info@laserclinicluzern.ch</div>
               </div>
             </div>
             <div>
