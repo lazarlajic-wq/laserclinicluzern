@@ -201,7 +201,7 @@ const Index = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Keine Kette.<br />Keine Massenabfertigung.
               </h2>
-              <div className="font-body text-muted-foreground space-y-4 leading-relaxed max-w-md md:max-w-none">
+              <div className="font-body text-muted-foreground space-y-4 leading-relaxed md:max-w-none">
                 <p>
                   <strong className="text-foreground">Ein Studio. Ein Fokus. Echte Betreuung.</strong> Bei uns landest du nicht im System einer Beauty-Kette, sondern bei Spezialisten für Laser-Haarentfernung bei Männern.
                 </p>
