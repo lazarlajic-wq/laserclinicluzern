@@ -178,12 +178,12 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative order-2 md:order-1 flex justify-center"
+              className="relative order-2 md:order-1"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm md:max-w-none">
+              <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
                 <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
               </div>
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border">
+              <div className="mt-3 md:mt-0 md:absolute md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border w-fit mx-auto md:mx-0">
                 <div className="flex items-center gap-2 mb-1">
                   <Shield className="w-4 h-4 text-primary" />
                   <span className="font-body text-xs font-bold uppercase tracking-wider">8+ Jahre Erfahrung</span>
@@ -394,7 +394,7 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="flex justify-center"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm md:max-w-none">
+              <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
                 <img src={erminImg} alt="Ermin – Laser Clinic Luzern" className="w-full h-[300px] md:h-[420px] object-cover object-top" />
               </div>
             </motion.div>
