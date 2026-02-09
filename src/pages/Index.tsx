@@ -134,7 +134,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Technik, Erfahrung und Strategie – genau darauf ist unsere Behandlung ausgelegt. Ergebnisse, wo andere scheitern.
               </p>
-              <div className="space-y-3 inline-block text-left">
+              <div className="space-y-3 inline-block text-left mx-auto md:mx-0">
                 {["Sichtbare Resultate nach wenigen Sitzungen", "Med. Hochleistungslaser für alle Haare", "Individuelle Behandlungsstrategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
