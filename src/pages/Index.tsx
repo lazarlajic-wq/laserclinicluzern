@@ -307,7 +307,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+                transition={{ delay: i * 0.2, duration: 0.7, ease: "easeOut" }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="flex flex-col items-center bg-background/50 backdrop-blur rounded-2xl p-8 shadow-lg border border-border/50"
               >
