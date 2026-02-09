@@ -366,7 +366,7 @@ const Index = () => {
       <section className="py-16 md:py-24 px-5 md:px-12">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="text-center md:text-left flex flex-col items-center md:items-start max-w-lg mx-auto md:max-w-none md:mx-0">
+            <div className="text-center md:text-left flex flex-col items-center md:items-start">
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Dauerhaft haarfrei beginnt mit einer Nachricht.
