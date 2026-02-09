@@ -172,7 +172,7 @@ const Index = () => {
       </section>
 
       {/* ─── ÜBER UNS mit BEHANDLUNGSBILD ─── */}
-      <section ref={parallaxRef} className="py-16 md:py-24 px-5 md:px-12 bg-card">
+      <section ref={parallaxRef} className="py-16 md:py-24 px-8 md:px-12 bg-card">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div
