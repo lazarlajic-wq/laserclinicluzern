@@ -53,8 +53,8 @@ export default {
         },
         gold: "hsl(var(--gold))",
         "gold-light": "hsl(var(--gold-light))",
-        rose: "hsl(var(--rose))",
-        "rose-light": "hsl(var(--rose-light))",
+        "green-dark": "hsl(var(--green-dark))",
+        "green-mid": "hsl(var(--green-mid))",
         cream: "hsl(var(--cream))",
         charcoal: "hsl(var(--charcoal))",
         sidebar: {
