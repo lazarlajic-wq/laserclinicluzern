@@ -71,7 +71,7 @@ const Index = () => {
               className="h-20 md:h-28 mb-10"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 1, ease: "easeOut" }}
             />
 
             <motion.h1
