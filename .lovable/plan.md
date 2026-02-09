@@ -1,45 +1,37 @@
 
 
-## Analyse und Fixes: Zentrierung auf Mobile
+## Fix: "Ueber uns" und "Kontakt" endlich richtig zentrieren auf Mobile
 
-### Gefundene Probleme
+### Ursache des Problems
 
-**1. "Uber uns" Sektion (Zeilen 174-220)**
-- Das Behandlungsbild (`treatmentImg`) ist mit `max-w-sm` begrenzt, aber der Container verwendet `flex justify-center` -- das funktioniert, ABER das Badge-Overlay ("8+ Jahre Erfahrung") ist mit `absolute` positioniert und ragt teilweise aus dem sichtbaren Bereich. Das verschiebt den visuellen Schwerpunkt.
-- Die Textsektion hat `items-center` korrekt, aber der `div` mit "space-y-4" fuer die Absaetze hat `max-w-md` was den Text auf Mobile nochmal einschraenkt und nicht zentriert wirkt.
+Das Hauptproblem ist die Container-Struktur: `container mx-auto max-w-6xl px-5` gibt den Sektionen auf Mobile zu wenig seitlichen Abstand. Dazu kommt, dass die inneren Flex-Container (`items-center`) zwar die Kinder zentrieren, aber die Kinder selbst (Text, Listen, Buttons) ihre volle Breite nutzen und dadurch visuell nach rechts driften.
 
-**2. "Kontakt" Sektion (Zeilen 366-403)**
-- Die `<ul>` Liste (Zeile 377) hat keine Zentrierung -- die `<li>` Elemente sind mit `flex items-center gap-3` links ausgerichtet, waehrend der Eltern-Container `items-center` hat. Das Problem: Die Liste selbst ist ein Block-Element und nimmt die volle Breite ein, die einzelnen Items sind dann linksbundig.
-- Das Ermin-Bild hat `max-w-sm` auf Mobile was es kleiner macht, aber korrekt zentriert.
+Konkret:
+- **Kontakt-Sektion (Zeilen 366-403):** Der `div` mit `items-center` zentriert die Kinder, aber `h2`, `p`, `ul` und `Button` haben keine `max-width` Begrenzung auf Mobile und der Text laeuft ueber den sichtbaren Bereich hinaus. Der Button mit langem Text ragt rechts raus.
+- **Ueber-uns-Sektion (Zeilen 174-220):** Aehnliches Problem -- die Location-Zeile mit Icon ist nicht richtig zentriert, weil `flex items-center gap-3` den gesamten Block links haelt.
 
-**3. Weitere Probleme auf der gesamten Seite**
-- "Problem/Loesung" Sektion: Die Listen mit `inline-block text-left` (Zeilen 117, 137) sind zwar bewusst links ausgerichtet, koennten aber besser zentriert werden als Block.
-- Footer: Logo hat `mx-auto md:mx-0` -- korrekt.
+### Geplante Aenderungen (nur `src/pages/Index.tsx`)
 
----
+**1. Beide Sektionen: Container-Padding erhoehen auf Mobile**
+- `px-5` aendern zu `px-6` oder besser noch die inneren Content-Bereiche mit `max-w-lg mx-auto md:max-w-none md:mx-0` begrenzen, damit der Text auf Mobile nicht zu breit wird.
 
-### Geplante Aenderungen
+**2. Kontakt-Sektion (Zeilen 366-403):**
+- Dem Text-Container (Zeile 369) zusaetzlich `max-w-lg mx-auto md:mx-0` geben, damit der gesamte Block auf Mobile innerhalb des Viewports bleibt und zentriert ist.
+- Die `ul` Liste (Zeile 377): `mx-auto md:mx-0` beibehalten, aber zusaetzlich sicherstellen dass die Items auch visuell zentriert wirken.
+- Den Button (Zeile 386): `w-full sm:w-auto` hinzufuegen, damit er auf Mobile die volle Breite nutzt statt ueber den Rand zu ragen.
+- Die Location/Antwort-Texte ebenfalls mit `justify-center md:justify-start` versehen.
 
-Alle Aenderungen betreffen nur `src/pages/Index.tsx`:
+**3. Ueber-uns-Sektion (Zeilen 195-217):**
+- Dem Text-Container `max-w-lg mx-auto md:max-w-none md:mx-0` geben.
+- Die Location-Zeile (Zeile 213-216): `justify-center md:justify-start` hinzufuegen, damit Icon und Text auf Mobile zentriert sind.
 
-**A) "Uber uns" Sektion:**
-- Badge-Overlay Position vereinfachen: Auf Mobile unter das Bild setzen statt absolut positioniert, oder komplett zentriert mit sicheren Abstaenden.
-- `max-w-md` vom Text-Container entfernen auf Mobile, damit der Text die volle Breite nutzt.
-
-**B) "Kontakt" Sektion:**
-- Die `<ul>` Liste mit `inline-flex flex-col` und `mx-auto` umwickeln, damit die Items als kompakter Block zentriert werden auf Mobile.
-- Alternativ: Items einzeln mit `justify-center` auf Mobile zentrieren.
-
-**C) Problem/Loesung Sektion:**
-- Die `inline-block text-left` Listen-Container mit `mx-auto` versehen, damit sie auf Mobile zentriert im Container sitzen.
-
-**D) Gesamtcheck:**
-- Alle Sektionen durchgehen und sicherstellen, dass `text-center` auf Mobile konsistent mit der Ausrichtung der Kind-Elemente ist.
-- Bilder: Alle Bild-Container bekommen `mx-auto` wo noetig.
+**4. Globaler Check:**
+- Alle Sektionen mit `max-w-6xl` Container auf Mobile pruefen, ob die Padding-Werte ausreichen.
+- Sicherstellen dass kein Element horizontal ueber den Viewport hinausragt (overflow).
 
 ### Technische Details
 
-Aenderungen nur in einer Datei:
-- `src/pages/Index.tsx` -- ca. 8-10 kleinere CSS-Klassen-Anpassungen an den betroffenen Containern
-
-Keine neuen Abhaengigkeiten. Keine strukturellen Aenderungen am Layout oder Inhalt.
+- Datei: `src/pages/Index.tsx`
+- Ca. 6-8 CSS-Klassen-Aenderungen
+- Keine neuen Abhaengigkeiten
+- Keine strukturellen Aenderungen
