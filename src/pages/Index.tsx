@@ -178,12 +178,12 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative order-2 md:order-1"
+              className="relative order-2 md:order-1 flex justify-center"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md md:max-w-none">
+              <div className="rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm md:max-w-none">
                 <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
               </div>
-              <div className="absolute bottom-2 right-2 md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border">
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border">
                 <div className="flex items-center gap-2 mb-1">
                   <Shield className="w-4 h-4 text-primary" />
                   <span className="font-body text-xs font-bold uppercase tracking-wider">8+ Jahre Erfahrung</span>
@@ -195,13 +195,13 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2 text-center md:text-left"
+              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Keine Kette.<br />Keine Massenabfertigung.
               </h2>
-              <div className="font-body text-muted-foreground space-y-4 leading-relaxed">
+              <div className="font-body text-muted-foreground space-y-4 leading-relaxed max-w-md md:max-w-none">
                 <p>
                   <strong className="text-foreground">Ein Studio. Ein Fokus. Echte Betreuung.</strong> Bei uns landest du nicht im System einer Beauty-Kette, sondern bei Spezialisten für Laser-Haarentfernung bei Männern.
                 </p>
@@ -210,8 +210,8 @@ const Index = () => {
                   Erfahrung aus 8 Jahren professioneller Laserarbeit. Keine Experimente. <strong className="text-foreground">Nur Resultate.</strong>
                 </p>
               </div>
-              <div className="flex items-center justify-center md:justify-start gap-3 mt-6 font-body text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-3 mt-6 font-body text-sm text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 Zentral in Luzern – erreichbar aus Zug, Zürich & Umgebung
               </div>
             </motion.div>
