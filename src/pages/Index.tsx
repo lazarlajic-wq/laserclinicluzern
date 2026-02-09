@@ -210,7 +210,7 @@ const Index = () => {
                   Erfahrung aus 8 Jahren professioneller Laserarbeit. Keine Experimente. <strong className="text-foreground">Nur Resultate.</strong>
                 </p>
               </div>
-              <div className="flex items-center gap-3 mt-6 font-body text-sm text-muted-foreground">
+              <div className="flex items-center justify-center md:justify-start gap-3 mt-6 font-body text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 Zentral in Luzern – erreichbar aus Zug, Zürich & Umgebung
               </div>
