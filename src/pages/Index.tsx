@@ -114,7 +114,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Die meisten Männer starten Laser mit Hoffnung – und hören frustriert auf. Nicht weil Laser nicht wirkt, sondern weil er falsch angewendet wird.
               </p>
-              <div className="space-y-3 inline-block text-left">
+              <div className="space-y-3 inline-block text-left mx-auto md:mx-0">
                 {["Zu viele Sitzungen (15–20)", "Schwache Laser für tiefe Haare", "Keine individuelle Strategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
@@ -134,7 +134,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Technik, Erfahrung und Strategie – genau darauf ist unsere Behandlung ausgelegt. Ergebnisse, wo andere scheitern.
               </p>
-              <div className="space-y-3 inline-block text-left">
+              <div className="space-y-3 inline-block text-left mx-auto md:mx-0">
                 {["Sichtbare Resultate nach wenigen Sitzungen", "Med. Hochleistungslaser für alle Haare", "Individuelle Behandlungsstrategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -201,7 +201,7 @@ const Index = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Keine Kette.<br />Keine Massenabfertigung.
               </h2>
-              <div className="font-body text-muted-foreground space-y-4 leading-relaxed max-w-md md:max-w-none">
+              <div className="font-body text-muted-foreground space-y-4 leading-relaxed md:max-w-none">
                 <p>
                   <strong className="text-foreground">Ein Studio. Ein Fokus. Echte Betreuung.</strong> Bei uns landest du nicht im System einer Beauty-Kette, sondern bei Spezialisten für Laser-Haarentfernung bei Männern.
                 </p>
@@ -374,7 +374,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6">
                 Schreib uns auf WhatsApp für eine kostenlose Laser-Beratung. Du erfährst direkt:
               </p>
-              <ul className="font-body space-y-3 mb-8">
+              <ul className="font-body space-y-3 mb-8 inline-flex flex-col mx-auto md:mx-0">
                 {["Wie viele Sitzungen du brauchst", "Welche Ergebnisse realistisch sind", "Ob Laser bei dir wirklich funktioniert"].map((t, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm">
                     <ChevronRight className="w-4 h-4 text-primary flex-shrink-0" />
