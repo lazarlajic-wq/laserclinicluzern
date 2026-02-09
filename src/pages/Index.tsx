@@ -172,8 +172,8 @@ const Index = () => {
       </section>
 
       {/* ─── ÜBER UNS mit BEHANDLUNGSBILD ─── */}
-      <section ref={parallaxRef} className="py-16 md:py-24 px-8 md:px-12 bg-card">
-        <div className="container mx-auto max-w-6xl">
+      <section ref={parallaxRef} className="py-16 md:py-24 px-5 md:px-12 bg-card">
+        <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
@@ -195,7 +195,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start max-w-lg mx-auto md:max-w-none md:mx-0"
+              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -363,10 +363,10 @@ const Index = () => {
       </section>
 
       {/* ─── FINAL CTA ─── */}
-      <section className="py-16 md:py-24 px-8 md:px-12">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-16 md:py-24 px-5 md:px-12">
+        <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="text-center md:text-left flex flex-col items-center md:items-start max-w-lg mx-auto md:max-w-none md:mx-0">
+            <div className="text-center md:text-left flex flex-col items-center md:items-start">
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Dauerhaft haarfrei beginnt mit einer Nachricht.
