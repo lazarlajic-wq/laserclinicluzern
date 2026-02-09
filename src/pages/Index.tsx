@@ -34,7 +34,7 @@ const Index = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
 
       {/* ─── HERO ─── */}
       <section className="bg-dark-section">
@@ -172,7 +172,7 @@ const Index = () => {
       </section>
 
       {/* ─── ÜBER UNS mit BEHANDLUNGSBILD ─── */}
-      <section ref={parallaxRef} className="py-16 md:py-24 px-5 md:px-12 bg-card">
+      <section ref={parallaxRef} className="py-16 md:py-24 px-8 md:px-12 bg-card">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div
@@ -363,7 +363,7 @@ const Index = () => {
       </section>
 
       {/* ─── FINAL CTA ─── */}
-      <section className="py-16 md:py-24 px-5 md:px-12">
+      <section className="py-16 md:py-24 px-8 md:px-12">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="text-center md:text-left flex flex-col items-center md:items-start max-w-lg mx-auto md:max-w-none md:mx-0">
