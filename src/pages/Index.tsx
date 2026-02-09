@@ -114,7 +114,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6 leading-relaxed">
                 Die meisten Männer starten Laser mit Hoffnung – und hören frustriert auf. Nicht weil Laser nicht wirkt, sondern weil er falsch angewendet wird.
               </p>
-              <div className="space-y-3 inline-block text-left">
+              <div className="space-y-3 inline-block text-left mx-auto md:mx-0">
                 {["Zu viele Sitzungen (15–20)", "Schwache Laser für tiefe Haare", "Keine individuelle Strategie"].map((t, i) => (
                   <div key={i} className="flex items-start gap-3 font-body text-sm">
                     <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
