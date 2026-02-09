@@ -195,7 +195,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
+              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start max-w-lg mx-auto md:max-w-none md:mx-0"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
