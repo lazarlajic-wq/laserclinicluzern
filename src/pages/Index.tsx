@@ -374,7 +374,7 @@ const Index = () => {
               <p className="font-body text-muted-foreground mb-6">
                 Schreib uns auf WhatsApp für eine kostenlose Laser-Beratung. Du erfährst direkt:
               </p>
-              <ul className="font-body space-y-3 mb-8">
+              <ul className="font-body space-y-3 mb-8 inline-flex flex-col mx-auto md:mx-0">
                 {["Wie viele Sitzungen du brauchst", "Welche Ergebnisse realistisch sind", "Ob Laser bei dir wirklich funktioniert"].map((t, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm">
                     <ChevronRight className="w-4 h-4 text-primary flex-shrink-0" />
