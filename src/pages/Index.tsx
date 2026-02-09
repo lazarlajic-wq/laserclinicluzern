@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Phone, MapPin, Star, MessageCircle, CheckCircle, XCircle, ChevronRight, Clock, Shield } from "lucide-react";
+import { ArrowRight, Phone, MapPin, Star, MessageCircle, CheckCircle, XCircle, ChevronRight, Clock, Shield, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import treatmentImg from "@/assets/treatment.png";
@@ -37,62 +37,82 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-hidden">
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-        {/* BG image */}
-        <div className="absolute inset-0 z-0">
-          <img src={treatmentImg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
-        </div>
+      <section className="relative bg-dark-section overflow-hidden">
+        <div className="container mx-auto max-w-6xl px-5 md:px-12 py-12 md:py-20 lg:py-24">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left: Text + CTA */}
+            <div className="order-2 md:order-1">
+              <motion.img
+                src={logo}
+                alt="Laser Clinic Luzern"
+                className="h-12 md:h-16 mb-6 brightness-0 invert"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              />
 
-        <div className="relative z-10 container mx-auto px-5 md:px-12 py-16">
-          <div className="max-w-xl">
-            <motion.img
-              src={logo}
-              alt="Laser Clinic Luzern"
-              className="h-16 md:h-24 mb-8 brightness-0 invert"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-
-            <motion.h1
-              variants={fadeUp} initial="hidden" animate="visible" custom={0}
-              className="font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-primary-foreground mb-5"
-            >
-              Der Mann hinter dem Laser, der liefert.
-            </motion.h1>
-
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={1}
-              className="font-body text-primary-foreground/70 text-base md:text-lg leading-relaxed mb-8 max-w-md"
-            >
-              Professionelle Laser-Haarentfernung für Männer.{" "}
-              <strong className="text-primary-foreground">4–6 Sitzungen</strong> statt 15–20.{" "}
-              <strong className="text-primary-foreground">80–90 % Haarreduktion.</strong>
-            </motion.p>
-
-            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="flex flex-col sm:flex-row gap-3">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground font-body font-bold text-sm md:text-base px-8 py-6 uppercase tracking-wider shadow-xl hover:bg-accent/90 transition-colors"
+              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}
+                className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-5"
               >
-                Kostenlose Beratung
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body px-8 py-6"
+                <Zap className="w-3.5 h-3.5 text-accent" />
+                <span className="font-body text-xs font-semibold text-primary-foreground/80 uppercase tracking-wider">
+                  80–90 % Haarreduktion in 4–6 Sitzungen
+                </span>
+              </motion.div>
+
+              <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1}
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-primary-foreground mb-4"
               >
-                <Phone className="w-4 h-4" />
-                +41 76 220 82 28
-              </Button>
+                Schluss mit endlosen Sitzungen.{" "}
+                <span className="text-accent">Sichtbare Ergebnisse</span> – garantiert.
+              </motion.h1>
+
+              <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
+                className="font-body text-primary-foreground/60 text-sm md:text-base leading-relaxed mb-6 max-w-md"
+              >
+                Laser-Haarentfernung für Männer mit med. Hochleistungslaser. Wo andere aufhören, fangen wir an.
+              </motion.p>
+
+              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}
+                className="flex flex-col sm:flex-row gap-3 mb-5"
+              >
+                <Button
+                  size="lg"
+                  className="bg-accent text-accent-foreground font-body font-bold text-sm px-7 py-6 uppercase tracking-wider shadow-xl hover:bg-accent/90 transition-colors"
+                >
+                  Kostenlose Beratung starten
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-body text-sm px-7 py-6"
+                >
+                  <Phone className="w-4 h-4" />
+                  Anrufen
+                </Button>
+              </motion.div>
+
+              <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
+                className="flex flex-wrap gap-x-4 gap-y-1 font-body text-xs text-primary-foreground/40"
+              >
+                <span>✓ 2'824 Behandlungen</span>
+                <span>✓ 5.0 ★ Google</span>
+                <span>✓ 8+ Jahre Erfahrung</span>
+              </motion.div>
+            </div>
+
+            {/* Right: Ermin image */}
+            <motion.div
+              className="order-1 md:order-2 relative"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="rounded-2xl overflow-hidden shadow-2xl max-h-[280px] md:max-h-[480px]">
+                <img src={erminImg} alt="Ermin – Gründer Laser Clinic Luzern" className="w-full h-[280px] md:h-[480px] object-cover object-top" />
+              </div>
             </motion.div>
-
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
-              className="font-body text-xs md:text-sm text-primary-foreground/50 mt-5"
-            >
-              ✓ 2'824 Behandlungen · ✓ 5.0 Google-Bewertung · ✓ 8+ Jahre Erfahrung
-            </motion.p>
           </div>
         </div>
       </section>
@@ -101,7 +121,6 @@ const Index = () => {
       <section className="py-16 md:py-24 px-5 md:px-12">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-            {/* Problem */}
             <motion.div
               initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -121,7 +140,6 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Lösung */}
             <motion.div
               initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
@@ -169,7 +187,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── ÜBER UNS / ERMIN + STANDORT ─── */}
+      {/* ─── ÜBER UNS mit BEHANDLUNGSBILD ─── */}
       <section ref={parallaxRef} className="py-16 md:py-24 px-5 md:px-12 bg-card">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -179,9 +197,8 @@ const Index = () => {
               className="relative order-2 md:order-1"
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <motion.img style={{ y: imgY }} src={erminImg} alt="Ermin – Gründer" className="w-full h-[400px] md:h-[520px] object-cover object-top" />
+                <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[300px] md:h-[460px] object-cover" />
               </div>
-              {/* Small overlay card */}
               <div className="absolute -bottom-4 -right-4 md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-4 border border-border">
                 <div className="flex items-center gap-2 mb-1">
                   <Shield className="w-4 h-4 text-primary" />
@@ -206,7 +223,7 @@ const Index = () => {
                 </p>
                 <p>Diskret. Persönlich. Auf Resultate ausgerichtet.</p>
                 <p>
-                  Erfahrung aus 8 Jahren professioneller Laserarbeit. Keine Experimente. Keine Beauty-Spielereien. <strong className="text-foreground">Nur Resultate.</strong>
+                  Erfahrung aus 8 Jahren professioneller Laserarbeit. Keine Experimente. <strong className="text-foreground">Nur Resultate.</strong>
                 </p>
               </div>
               <div className="flex items-center gap-3 mt-6 font-body text-sm text-muted-foreground">
@@ -218,7 +235,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── STANDORT BILD ─── */}
+      {/* ─── TECHNOLOGIE + STANDORT ─── */}
       <section className="py-16 md:py-24 px-5 md:px-12">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -241,7 +258,7 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="rounded-2xl overflow-hidden shadow-2xl"
             >
-              <img src={storefrontImg} alt="Laser Clinic Luzern Standort" className="w-full h-[350px] md:h-[420px] object-cover" />
+              <img src={storefrontImg} alt="Laser Clinic Luzern Standort" className="w-full h-[280px] md:h-[380px] object-cover" />
             </motion.div>
           </div>
         </div>
@@ -252,9 +269,7 @@ const Index = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-14">
             <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">So funktioniert's</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold">
-              In 3 Schritten zur Haarfreiheit
-            </h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold">In 3 Schritten zur Haarfreiheit</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -283,7 +298,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── STATS (dark section) ─── */}
+      {/* ─── STATS ─── */}
       <section className="bg-dark-section py-16 md:py-20 px-5 md:px-12">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
@@ -340,7 +355,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── TEAM + CTA ─── */}
+      {/* ─── TEAM CTA ─── */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img src={teamImg} alt="" className="w-full h-full object-cover" />
@@ -364,9 +379,9 @@ const Index = () => {
 
       {/* ─── FINAL CTA ─── */}
       <section className="py-16 md:py-24 px-5 md:px-12">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-3">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Dauerhaft haarfrei beginnt mit einer Nachricht.
@@ -383,21 +398,19 @@ const Index = () => {
                 ))}
               </ul>
               <p className="font-body text-sm text-muted-foreground mb-6">Diskret. Ehrlich. Unverbindlich.</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors">
-                  Kostenlose Beratung starten
-                  <MessageCircle className="w-4 h-4 ml-1" />
-                </Button>
-              </div>
+              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors">
+                Kostenlose Beratung starten
+                <MessageCircle className="w-4 h-4 ml-1" />
+              </Button>
               <p className="font-body text-xs text-muted-foreground mt-3 italic">Antwort meist innerhalb weniger Minuten.</p>
             </div>
-            <motion.div className="md:col-span-2"
+            {/* Storefront image here instead of duplicate ermin */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="rounded-2xl overflow-hidden shadow-2xl"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img src={erminImg} alt="Ermin" className="w-full h-[400px] md:h-[480px] object-cover object-top" />
-              </div>
+              <img src={storefrontImg} alt="Laser Clinic Luzern" className="w-full h-[300px] md:h-[420px] object-cover" />
             </motion.div>
           </div>
         </div>
