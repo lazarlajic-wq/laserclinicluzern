@@ -394,7 +394,7 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="flex justify-center"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
+              <div className="rounded-2xl overflow-hidden shadow-2xl w-full mx-2">
                 <img src={erminImg} alt="Ermin – Laser Clinic Luzern" className="w-full h-[300px] md:h-[420px] object-cover object-top" />
               </div>
             </motion.div>
