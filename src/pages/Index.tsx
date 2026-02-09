@@ -335,7 +335,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+                transition={{ delay: i * 0.15, duration: 0.7, ease: "easeOut" }}
               >
                 <div className="font-display text-4xl md:text-6xl font-bold text-accent">{stat.value}</div>
                 <div className="font-body text-xs md:text-sm text-muted-foreground mt-3 uppercase tracking-[0.2em]">{stat.label}</div>
