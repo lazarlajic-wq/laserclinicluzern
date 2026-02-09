@@ -1,37 +1,35 @@
 
 
-## Fix: "Ueber uns" und "Kontakt" endlich richtig zentrieren auf Mobile
+## Fix: "Ueber uns" und "Kontakt" an "Kundenstimmen" angleichen
 
-### Ursache des Problems
+### Das eigentliche Problem
 
-Das Hauptproblem ist die Container-Struktur: `container mx-auto max-w-6xl px-5` gibt den Sektionen auf Mobile zu wenig seitlichen Abstand. Dazu kommt, dass die inneren Flex-Container (`items-center`) zwar die Kinder zentrieren, aber die Kinder selbst (Text, Listen, Buttons) ihre volle Breite nutzen und dadurch visuell nach rechts driften.
+Die "Kundenstimmen"-Sektion verwendet eine andere Container-Struktur als "Ueber uns" und "Kontakt". Genau das verursacht den Versatz nach rechts.
 
-Konkret:
-- **Kontakt-Sektion (Zeilen 366-403):** Der `div` mit `items-center` zentriert die Kinder, aber `h2`, `p`, `ul` und `Button` haben keine `max-width` Begrenzung auf Mobile und der Text laeuft ueber den sichtbaren Bereich hinaus. Der Button mit langem Text ragt rechts raus.
-- **Ueber-uns-Sektion (Zeilen 174-220):** Aehnliches Problem -- die Location-Zeile mit Icon ist nicht richtig zentriert, weil `flex items-center gap-3` den gesamten Block links haelt.
+**Kundenstimmen (korrekt zentriert):**
+- Section: `px-5 md:px-12`
+- Container: `max-w-5xl`
 
-### Geplante Aenderungen (nur `src/pages/Index.tsx`)
+**Ueber uns und Kontakt (nach rechts verschoben):**
+- Section: `px-8 md:px-12`
+- Container: `max-w-6xl`
+- Zusaetzlich: `max-w-lg mx-auto` auf Text-Containern
 
-**1. Beide Sektionen: Container-Padding erhoehen auf Mobile**
-- `px-5` aendern zu `px-6` oder besser noch die inneren Content-Bereiche mit `max-w-lg mx-auto md:max-w-none md:mx-0` begrenzen, damit der Text auf Mobile nicht zu breit wird.
+Das Problem: `max-w-6xl` (1152px) ist breiter als `max-w-5xl` (1024px). Zusammen mit unterschiedlichem Padding (`px-8` vs `px-5`) ergibt sich ein anderes Layout-Verhalten auf Mobile. Ausserdem fuegt `max-w-lg mx-auto` auf den Text-Containern eine zusaetzliche Begrenzung hinzu, die den Inhalt nicht gleich verteilt wie bei Kundenstimmen.
 
-**2. Kontakt-Sektion (Zeilen 366-403):**
-- Dem Text-Container (Zeile 369) zusaetzlich `max-w-lg mx-auto md:mx-0` geben, damit der gesamte Block auf Mobile innerhalb des Viewports bleibt und zentriert ist.
-- Die `ul` Liste (Zeile 377): `mx-auto md:mx-0` beibehalten, aber zusaetzlich sicherstellen dass die Items auch visuell zentriert wirken.
-- Den Button (Zeile 386): `w-full sm:w-auto` hinzufuegen, damit er auf Mobile die volle Breite nutzt statt ueber den Rand zu ragen.
-- Die Location/Antwort-Texte ebenfalls mit `justify-center md:justify-start` versehen.
+### Aenderungen (nur `src/pages/Index.tsx`)
 
-**3. Ueber-uns-Sektion (Zeilen 195-217):**
-- Dem Text-Container `max-w-lg mx-auto md:max-w-none md:mx-0` geben.
-- Die Location-Zeile (Zeile 213-216): `justify-center md:justify-start` hinzufuegen, damit Icon und Text auf Mobile zentriert sind.
+**1. "Ueber uns" Sektion (Zeile 175):**
+- `px-8 md:px-12` aendern zu `px-5 md:px-12` (gleich wie Kundenstimmen)
+- `max-w-6xl` aendern zu `max-w-5xl` (gleich wie Kundenstimmen)
+- `max-w-lg mx-auto md:max-w-none md:mx-0` vom Text-Container (Zeile 198) entfernen -- nur `items-center md:items-start` behalten
 
-**4. Globaler Check:**
-- Alle Sektionen mit `max-w-6xl` Container auf Mobile pruefen, ob die Padding-Werte ausreichen.
-- Sicherstellen dass kein Element horizontal ueber den Viewport hinausragt (overflow).
+**2. "Kontakt" Sektion (Zeile 366):**
+- `px-8 md:px-12` aendern zu `px-5 md:px-12` (gleich wie Kundenstimmen)
+- `max-w-6xl` aendern zu `max-w-5xl` (gleich wie Kundenstimmen)
+- `max-w-lg mx-auto md:max-w-none md:mx-0` vom Text-Container (Zeile 369) entfernen
 
-### Technische Details
+### Ergebnis
 
-- Datei: `src/pages/Index.tsx`
-- Ca. 6-8 CSS-Klassen-Aenderungen
-- Keine neuen Abhaengigkeiten
-- Keine strukturellen Aenderungen
+Beide Sektionen verwenden danach exakt dieselbe Container-Struktur wie "Kundenstimmen": `px-5 md:px-12` und `max-w-5xl`. Damit sitzen sie identisch zentriert auf Mobile.
+
