@@ -34,7 +34,7 @@ const Index = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
 
       {/* ─── HERO ─── */}
       <section className="bg-dark-section">
