@@ -175,7 +175,7 @@ const Index = () => {
               <div className="rounded-2xl overflow-hidden shadow-lg md:shadow-2xl w-full">
                 <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
               </div>
-              <div className="mt-3 md:mt-0 md:absolute md:bottom-6 md:-right-6 bg-background rounded-xl shadow-xl p-3 md:p-4 border border-border w-fit mx-auto md:mx-0">
+              <div className="mt-3 md:mt-0 md:absolute md:bottom-6 md:-right-6 bg-background rounded-xl shadow-lg md:shadow-xl p-3 md:p-4 border border-border w-fit mx-auto md:mx-0">
                 <div className="flex items-center gap-2 mb-1">
                   <Shield className="w-4 h-4 text-primary" />
                   <span className="font-body text-xs font-bold uppercase tracking-wider">8+ Jahre Erfahrung</span>
