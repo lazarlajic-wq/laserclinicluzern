@@ -195,7 +195,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
+              className="order-1 md:order-2 text-center md:text-left flex flex-col md:items-start"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -366,7 +366,7 @@ const Index = () => {
       <section className="py-16 md:py-24 px-5 md:px-12">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <div className="text-center md:text-left flex flex-col md:items-start">
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Kontakt</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
                 Dauerhaft haarfrei beginnt mit einer Nachricht.
@@ -383,7 +383,7 @@ const Index = () => {
                 ))}
               </ul>
               <p className="font-body text-sm text-muted-foreground mb-6">Diskret. Ehrlich. Unverbindlich.</p>
-              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors w-full sm:w-auto">
+              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors w-full sm:w-auto mx-auto md:mx-0">
                 Kostenlose Beratung starten
                 <MessageCircle className="w-4 h-4 ml-1" />
               </Button>
