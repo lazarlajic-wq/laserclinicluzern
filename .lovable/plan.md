@@ -1,77 +1,47 @@
 
 
-## Fix: Text und Bilder in "Ueber uns" und "Kontakt" richtig zentrieren
+## Fix: Text in "Kontakt" und "Ueber uns" auf Mobile korrekt zentrieren
 
-### Das eigentliche Problem (diesmal wirklich)
+### Ursache des Problems
 
-Die aeussere Container-Struktur (`px-5`, `max-w-5xl`) ist jetzt identisch mit Kundenstimmen. Aber das hat NICHT gereicht, weil der Unterschied INNEN liegt:
+Die Klasse `items-center` auf einem `flex flex-col` Container bewirkt, dass **jedes Kind-Element auf seine Textbreite schrumpft** und dann horizontal zentriert wird. Bei langen Texten, die umbrechen, entstehen schmale Textbloecke, die nicht die volle Breite nutzen -- dadurch sieht der Text visuell verschoben aus, als waere er "am Rand" des Bildschirms.
 
-- **Kundenstimmen**: Inhalte stecken in Cards mit `p-6` (24px extra Padding). Gesamtabstand vom Bildschirmrand: 20px + 32px + 24px = **76px**
-- **Ueber uns / Kontakt**: Text sitzt direkt im Container ohne Card-Wrapper. Gesamtabstand: 20px + 32px = **52px**
+**Kundenstimmen (funktioniert korrekt):** Verwendet `text-center` OHNE `items-center` auf einem Flex-Container. Die Text-Elemente nehmen die volle Breite ein und `text-center` zentriert den Text darin gleichmaessig.
 
-Ausserdem: Die `container`-Klasse im Tailwind-Config hat ein eingebautes `padding: 2rem`, das zusammen mit dem Section-`px-5` doppeltes Padding erzeugt. Das funktioniert, aber der Inhalt hat trotzdem weniger visuellen Abstand als Kundenstimmen.
+**Kontakt und Ueber uns (das Problem):** Verwenden `flex flex-col items-center`, wodurch die Text-Elemente schrumpfen und ungleichmaessig aussehen.
 
 ### Loesung
 
-Die Section-Klasse `px-5` entfernen (die Container-Klasse hat bereits `padding: 2rem` eingebaut). Stattdessen den inneren Text-Containern in beiden Sektionen mehr Padding geben, damit der visuelle Abstand zum Rand aehnlich wie bei Kundenstimmen wirkt.
+`items-center` auf Mobile durch `items-stretch` ersetzen, damit die Kinder die volle Breite einnehmen. `text-center` bleibt und sorgt fuer die optische Zentrierung des Textes. Nur auf `md:` wird `items-start` beibehalten fuer das Desktop-Layout (linksbuendiger Text).
+
+Einzelne Elemente wie der Button, die wirklich horizontal zentriert sein muessen, bekommen `mx-auto` bzw. behalten `justify-center`.
 
 ### Aenderungen (nur `src/pages/Index.tsx`)
 
-**1. "Ueber uns" Sektion:**
-- Section (Zeile 175): `px-5 md:px-12` beibehalten
-- Text-Container (Zeile 198): `px-4` hinzufuegen, damit der Text mehr Abstand vom Rand hat
-- Bild-Container (Zeile 183): `mx-2` hinzufuegen, damit das Bild nicht an den Rand stoesst
+**1. "Ueber uns" Text-Container (Zeile 198):**
+```
+Vorher:  "order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
+Nachher: "order-1 md:order-2 text-center md:text-left flex flex-col md:items-start"
+```
+`items-center` entfernen. Auf Mobile werden die Kinder automatisch `stretch` (Flexbox-Standard) und nehmen die volle Breite ein. `text-center` zentriert den Text visuell.
 
-**2. "Kontakt" Sektion:**
-- Section (Zeile 366): gleich lassen
-- Text-Container (Zeile 369): `px-4` hinzufuegen
-- Bild-Container (Zeile 397): `mx-2` hinzufuegen
+**2. "Kontakt" Text-Container (Zeile 369):**
+```
+Vorher:  "text-center md:text-left flex flex-col items-center md:items-start"
+Nachher: "text-center md:text-left flex flex-col md:items-start"
+```
+Gleiche Aenderung.
 
-**3. Alternative (besserer Ansatz):** Das `container`-Padding im Tailwind-Config von `2rem` auf `2.5rem` erhoehen. Das wuerde ALLE Sektionen gleichmaessig beeinflussen und global mehr Abstand schaffen. Allerdings koennte das die Kundenstimmen-Sektion (die der User als korrekt betrachtet) auch veraendern.
+**3. "Kontakt" Button (Zeile 386):**
+`mx-auto md:mx-0` hinzufuegen, damit der Button auf Mobile zentriert bleibt (da er ohne `items-center` nach links rutschen wuerde).
 
-**4. Empfohlener Ansatz:** Das Padding der beiden Sektionen auf `px-8` setzen (statt `px-5`), UND gleichzeitig die inneren Text-Container mit `px-2` versehen. Das ergibt: 32px + 32px + 8px = **72px** Abstand vom Rand -- fast identisch mit Kundenstimmen (76px).
+**4. "Kontakt" Antwort-Text (Zeile 390):**
+Bleibt durch `text-center` automatisch zentriert, da er volle Breite einnimmt.
 
-### Konkrete Code-Aenderungen
-
-**Ueber uns (Zeile 175):**
-```
-px-5 md:px-12  →  px-8 md:px-12
-```
-
-**Ueber uns Text-Container (Zeile 198):**
-```
-className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start"
-→
-className="order-1 md:order-2 text-center md:text-left flex flex-col items-center md:items-start px-2"
-```
-
-**Kontakt (Zeile 366):**
-```
-px-5 md:px-12  →  px-8 md:px-12
-```
-
-**Kontakt Text-Container (Zeile 369):**
-```
-className="text-center md:text-left flex flex-col items-center md:items-start"
-→
-className="text-center md:text-left flex flex-col items-center md:items-start px-2"
-```
-
-**Kontakt Bild-Container (Zeile 397):**
-```
-className="rounded-2xl overflow-hidden shadow-2xl w-full"
-→
-className="rounded-2xl overflow-hidden shadow-2xl w-full mx-2"
-```
-
-**Ueber uns Bild-Container (Zeile 183):**
-```
-className="rounded-2xl overflow-hidden shadow-2xl w-full"
-→
-className="rounded-2xl overflow-hidden shadow-2xl w-full mx-2"
-```
+**5. "Ueber uns" Standort-Text (Zeile 213):**
+`justify-center` ist bereits vorhanden. Kein Aenderungsbedarf.
 
 ### Ergebnis
 
-Beide Sektionen haben dann ca. 72px Abstand vom Bildschirmrand zum Textinhalt, aehnlich wie die 76px bei Kundenstimmen. Bilder bekommen ebenfalls etwas mehr Luft vom Rand.
+Alle Textelemente in beiden Sektionen nehmen auf Mobile die volle Container-Breite ein. `text-center` zentriert den Text gleichmaessig -- genau wie bei "Kundenstimmen". Auf Desktop bleibt alles linksbuendig (`md:items-start`, `md:text-left`).
 
