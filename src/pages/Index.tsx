@@ -379,10 +379,6 @@ const Index = () => {
                 ))}
               </ul>
               <p className="font-body text-sm text-muted-foreground mb-6">Diskret. Ehrlich. Unverbindlich.</p>
-              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors w-full sm:w-auto mx-auto md:mx-0">
-                Kostenlose Beratung starten
-                <MessageCircle className="w-4 h-4 ml-1" />
-              </Button>
               <p className="font-body text-xs text-muted-foreground mt-3 italic">Antwort meist innerhalb weniger Minuten.</p>
             </div>
             <motion.div
