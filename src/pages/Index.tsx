@@ -80,14 +80,6 @@ const Index = () => {
               Kostenlose Beratung starten
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body text-sm px-7 py-6"
-            >
-              <Phone className="w-4 h-4" />
-              +41 76 220 82 28
-            </Button>
           </motion.div>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
