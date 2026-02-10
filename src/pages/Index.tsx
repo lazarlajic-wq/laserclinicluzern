@@ -354,10 +354,6 @@ const Index = () => {
             <p className="font-body text-primary-foreground/70 text-base md:text-lg mb-8 max-w-xl mx-auto">
               Viele unserer Kunden hatten bereits Laserbehandlungen ohne Ergebnis. Heute kommen sie zu uns – für echte Resultate.
             </p>
-            <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-10 py-7 text-base shadow-xl hover:bg-accent/90 transition-colors">
-              Zufriedener Kunde werden
-              <ArrowRight className="w-5 h-5 ml-1" />
-            </Button>
           </motion.div>
         </div>
       </section>
@@ -383,10 +379,6 @@ const Index = () => {
                 ))}
               </ul>
               <p className="font-body text-sm text-muted-foreground mb-6">Diskret. Ehrlich. Unverbindlich.</p>
-              <Button size="lg" className="bg-accent text-accent-foreground font-body font-bold uppercase tracking-wider px-8 py-6 shadow-lg hover:bg-accent/90 transition-colors w-full sm:w-auto mx-auto md:mx-0">
-                Kostenlose Beratung starten
-                <MessageCircle className="w-4 h-4 ml-1" />
-              </Button>
               <p className="font-body text-xs text-muted-foreground mt-3 italic">Antwort meist innerhalb weniger Minuten.</p>
             </div>
             <motion.div
