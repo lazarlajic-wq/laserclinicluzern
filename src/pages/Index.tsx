@@ -166,28 +166,11 @@ const Index = () => {
       {/* ─── ÜBER UNS mit BEHANDLUNGSBILD ─── */}
       <section ref={parallaxRef} className="py-16 md:py-24 px-5 md:px-12 bg-card">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative order-2 md:order-1 overflow-hidden"
-            >
-              <div className="rounded-2xl overflow-hidden shadow-lg md:shadow-2xl w-full">
-                <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
-              </div>
-              <div className="mt-3 md:mt-0 md:absolute md:bottom-6 md:-right-6 bg-background rounded-xl shadow-lg md:shadow-xl p-3 md:p-4 border border-border w-fit mx-auto md:mx-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <Shield className="w-4 h-4 text-primary" />
-                  <span className="font-body text-xs font-bold uppercase tracking-wider">8+ Jahre Erfahrung</span>
-                </div>
-                <p className="font-body text-xs text-muted-foreground">2'824 Behandlungen durchgeführt</p>
-              </div>
-            </motion.div>
-
+          <div className="max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="order-1 md:order-2 text-center md:text-left flex flex-col md:items-start"
+              className="text-center flex flex-col items-center"
             >
               <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Über uns</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">
