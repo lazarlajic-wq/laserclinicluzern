@@ -170,7 +170,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative order-2 md:order-1"
+              className="relative order-2 md:order-1 overflow-hidden"
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
                 <motion.img style={{ y: imgY }} src={treatmentImg} alt="Laser Behandlung" className="w-full h-[280px] md:h-[460px] object-cover" />
