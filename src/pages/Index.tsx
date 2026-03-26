@@ -12,7 +12,24 @@ import areaBart from "@/assets/area-bart.jpg";
 import areaIntim from "@/assets/area-intim.jpg";
 import erminImg from "@/assets/ermin.jpg";
 
+import AnimatedCounter from "@/components/premium/AnimatedCounter";
+import TextReveal from "@/components/premium/TextReveal";
+import MagneticButton from "@/components/premium/MagneticButton";
+import TiltCard from "@/components/premium/TiltCard";
+import GoldDivider from "@/components/premium/GoldDivider";
+import GoldParticles from "@/components/premium/GoldParticles";
+
 const WHATSAPP_URL = "https://wa.me/41762208228?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Laser-Haarentfernung.";
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -20,10 +37,6 @@ const fadeUp = {
     opacity: 1, y: 0,
     transition: { duration: 0.7, delay: i * 0.1 },
   }),
-};
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const reviews = [
@@ -105,6 +118,9 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
         </motion.div>
 
+        {/* Gold Particles */}
+        <GoldParticles />
+
         <motion.div
           className="relative z-10 max-w-4xl mx-auto px-5 md:px-8 text-center pt-20"
           style={{ opacity: heroOpacity }}
@@ -118,26 +134,37 @@ const Index = () => {
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
-          >
-            Du rasierst noch?{" "}
-            <span className="text-gradient-gold">Wir lösen das dauerhaft.</span>
-          </motion.h1>
+          {/* Text Reveal Hero Headline */}
+          <div className="mb-6">
+            <TextReveal
+              as="h1"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
+              delay={0.3}
+            >
+              Du rasierst noch?
+            </TextReveal>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.7 }}
+              className="text-gradient-gold text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight block mt-2"
+            >
+              Wir lösen das dauerhaft.
+            </motion.span>
+          </div>
 
           <motion.p
-            variants={fadeUp} initial="hidden" animate="visible" custom={2}
+            variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
             Glatte Haut in 4–6 Sitzungen statt 12–15. Modernste Diodenlaser-Technologie speziell für Männer in der Schweiz.
           </motion.p>
 
           <motion.div
-            variants={fadeUp} initial="hidden" animate="visible" custom={3}
+            variants={fadeUp} initial="hidden" animate="visible" custom={4}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <a
+            <MagneticButton
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -145,8 +172,8 @@ const Index = () => {
             >
               <MessageCircle className="w-5 h-5" />
               Termin sichern
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -154,11 +181,11 @@ const Index = () => {
             >
               Kostenlose Beratung
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </MagneticButton>
           </motion.div>
 
           <motion.div
-            variants={fadeUp} initial="hidden" animate="visible" custom={4}
+            variants={fadeUp} initial="hidden" animate="visible" custom={5}
             className="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-10 text-xs text-muted-foreground"
           >
             <span className="flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> 2'824+ Behandlungen</span>
@@ -179,23 +206,31 @@ const Index = () => {
         </motion.div>
       </section>
 
+      <GoldDivider />
+
       {/* ═══════════════════════════════════════════════════
           PROBLEM SECTION
       ═══════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32 px-5 md:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Das Problem</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight">
               Du kennst das.
-            </h2>
+            </TextReveal>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {[
               { icon: "🪒", title: "Tägliches Rasieren", desc: "Jeden Tag das gleiche Ritual. Zeitverschwendung, die nie aufhört." },
               { icon: "😤", title: "Eingewachsene Haare", desc: "Rote Punkte, Entzündungen, Narben. Besonders am Rücken und Intimbereich." },
@@ -204,10 +239,7 @@ const Index = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
+                variants={staggerItem}
                 className="bg-card border border-border rounded-lg p-6 hover:border-accent/30 transition-colors group"
               >
                 <div className="text-3xl mb-4">{item.icon}</div>
@@ -215,7 +247,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -226,6 +258,8 @@ const Index = () => {
           </motion.p>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
           LÖSUNG
@@ -238,9 +272,9 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
             >
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Die Lösung</span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">
-                Modernste Laser-Technologie. <span className="text-gradient-gold">Für Männer.</span>
-              </h2>
+              <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight mb-8">
+                Modernste Laser-Technologie. Für Männer.
+              </TextReveal>
               <div className="space-y-6">
                 {[
                   { icon: Zap, title: "Hochleistungs-Diodenlaser", desc: "Kein IPL, kein Studio-Laser. Medizinische Klinikniveau-Technologie für tiefe, dicke Männerhaare." },
@@ -270,10 +304,10 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="bg-secondary rounded-lg p-8 md:p-10 border border-border">
+              <div className="glass-card rounded-lg p-8 md:p-10 border border-border">
                 <div className="text-center space-y-8">
                   <div>
-                    <div className="text-5xl md:text-7xl font-bold text-gradient-gold">90%</div>
+                    <AnimatedCounter value="90%" className="text-5xl md:text-7xl font-bold text-gradient-gold" />
                     <p className="text-sm text-muted-foreground mt-2">weniger Haare nach Abschluss</p>
                   </div>
                   <div className="h-px bg-border" />
@@ -289,12 +323,21 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute -top-3 -right-3 w-20 h-20 border border-accent/20 rounded-lg" />
-              <div className="absolute -bottom-3 -left-3 w-20 h-20 border border-accent/20 rounded-lg" />
+              {/* Parallax decorative elements */}
+              <motion.div
+                className="absolute -top-3 -right-3 w-20 h-20 border border-accent/20 rounded-lg"
+                style={{ y: useTransform(useScroll().scrollYProgress, [0, 1], [0, -30]) }}
+              />
+              <motion.div
+                className="absolute -bottom-3 -left-3 w-20 h-20 border border-accent/20 rounded-lg"
+                style={{ y: useTransform(useScroll().scrollYProgress, [0, 1], [0, 20]) }}
+              />
             </motion.div>
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
           RESULTATE
@@ -302,20 +345,26 @@ const Index = () => {
       <section id="resultate" className="py-20 md:py-32 px-5 md:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Resultate</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Zahlen lügen nicht.
-            </h2>
+            </TextReveal>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Unsere Ergebnisse sprechen für sich. Echte Resultate, keine leeren Versprechen.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {[
               { value: "2'824+", label: "Behandlungen", icon: TrendingUp },
               { value: "90%", label: "Haarreduktion", icon: Zap },
@@ -324,77 +373,80 @@ const Index = () => {
             ].map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
+                variants={staggerItem}
                 className="bg-card border border-border rounded-lg p-6 text-center group hover:border-accent/30 transition-colors"
               >
                 <stat.icon className="w-5 h-5 text-accent mx-auto mb-3" />
-                <div className="text-2xl md:text-3xl font-bold text-gradient-gold">{stat.value}</div>
+                <AnimatedCounter value={stat.value} className="text-2xl md:text-3xl font-bold text-gradient-gold" />
                 <p className="text-xs text-muted-foreground mt-2 uppercase tracking-wider">{stat.label}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ═══════════════════════════════════════════════════
-          BEREICHE (CARDS)
+          BEREICHE (CARDS mit 3D Tilt)
       ═══════════════════════════════════════════════════ */}
       <section id="bereiche" className="py-20 md:py-32 px-5 md:px-8 bg-card">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Behandlungsbereiche</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Welcher Bereich nervt dich?
-            </h2>
+            </TextReveal>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Klicke auf deinen Bereich für Details, Preise und häufige Fragen.
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {treatmentAreas.map((area, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-              >
-                <Link
-                  to={area.href}
-                  className="block bg-background border border-border rounded-lg overflow-hidden group hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/5"
-                >
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <img
-                      src={area.img}
-                      alt={`Laser Haarentfernung ${area.title} Männer`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      loading="lazy"
-                      width={800}
-                      height={1024}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold mb-1 group-hover:text-accent transition-colors">{area.title}</h3>
-                    <p className="text-sm text-muted-foreground">{area.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-xs text-accent font-semibold mt-3 uppercase tracking-wider">
-                      Mehr erfahren <ChevronRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </Link>
+              <motion.div key={i} variants={staggerItem}>
+                <TiltCard className="block">
+                  <Link
+                    to={area.href}
+                    className="block bg-background border border-border rounded-lg overflow-hidden group hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/5"
+                  >
+                    <div className="relative h-48 md:h-56 overflow-hidden">
+                      <img
+                        src={area.img}
+                        alt={`Laser Haarentfernung ${area.title} Männer`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                        width={800}
+                        height={1024}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-lg font-bold mb-1 group-hover:text-accent transition-colors">{area.title}</h3>
+                      <p className="text-sm text-muted-foreground">{area.desc}</p>
+                      <span className="inline-flex items-center gap-1 text-xs text-accent font-semibold mt-3 uppercase tracking-wider">
+                        Mehr erfahren <ChevronRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                </TiltCard>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
           ABLAUF
@@ -402,14 +454,14 @@ const Index = () => {
       <section id="ablauf" className="py-20 md:py-32 px-5 md:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">So läuft's ab</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight">
               In 3 Schritten haarfrei.
-            </h2>
+            </TextReveal>
           </motion.div>
 
           <div className="space-y-0">
@@ -442,34 +494,39 @@ const Index = () => {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ═══════════════════════════════════════════════════
-          TRUST / REVIEWS
+          TRUST / REVIEWS (Glassmorphism)
       ═══════════════════════════════════════════════════ */}
       <section id="ueber-uns" className="py-20 md:py-32 px-5 md:px-8 bg-card">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Kundenstimmen</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Was Männer über uns sagen.
-            </h2>
+            </TextReveal>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Echte Bewertungen von echten Kunden. Keine Fake-Reviews.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-5 mb-16">
+          <motion.div
+            className="grid md:grid-cols-3 gap-5 mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {reviews.map((r, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="bg-background border border-border rounded-lg p-6 group hover:border-accent/30 transition-colors"
+                variants={staggerItem}
+                className="glass-card border border-border/50 rounded-lg p-6 group hover:border-accent/30 transition-colors"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -488,7 +545,7 @@ const Index = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Trust Badges */}
           <motion.div
@@ -511,6 +568,8 @@ const Index = () => {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ═══════════════════════════════════════════════════
           ÜBER UNS / TEAM
       ═══════════════════════════════════════════════════ */}
@@ -522,9 +581,9 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
             >
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Über uns</span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Keine Kette. Kein Schema F. <span className="text-gradient-gold">Nur Resultate.</span>
-              </h2>
+              <TextReveal as="h2" className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Keine Kette. Kein Schema F. Nur Resultate.
+              </TextReveal>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   <strong className="text-foreground">Ein Studio. Ein Fokus.</strong> Wir sind keine Beauty-Kette mit 20 Standorten.
@@ -554,23 +613,31 @@ const Index = () => {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ═══════════════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════════════ */}
       <section className="py-20 md:py-32 px-5 md:px-8 bg-card">
         <div className="max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">FAQ</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight">
               Häufige Fragen
-            </h2>
+            </TextReveal>
           </motion.div>
 
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {[
               { q: "Wie viele Sitzungen brauche ich?", a: "In der Regel 4–6 Sitzungen für bis zu 90% dauerhafte Haarreduktion. Das ist deutlich weniger als bei herkömmlichen Anbietern (12–15 Sitzungen)." },
               { q: "Tut die Behandlung weh?", a: "Dank integriertem Kühlsystem ist die Behandlung gut auszuhalten. Die meisten Kunden beschreiben ein leichtes Pieksen, vergleichbar mit einem Gummiband." },
@@ -581,11 +648,8 @@ const Index = () => {
             ].map((faq, i) => (
               <motion.details
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05, duration: 0.5 }}
-                className="bg-background border border-border rounded-lg group"
+                variants={staggerItem}
+                className="glass-card border border-border/50 rounded-lg group"
               >
                 <summary className="px-6 py-4 cursor-pointer text-sm font-semibold list-none flex items-center justify-between hover:text-accent transition-colors">
                   {faq.q}
@@ -596,30 +660,33 @@ const Index = () => {
                 </div>
               </motion.details>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
           FINAL CTA
       ═══════════════════════════════════════════════════ */}
       <section id="kontakt" className="py-20 md:py-32 px-5 md:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5" />
+        <GoldParticles />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
           >
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3 block">Starte jetzt</span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-              Hör auf mit Rasieren. <span className="text-gradient-gold">Starte heute.</span>
-            </h2>
+            <TextReveal as="h2" className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+              Hör auf mit Rasieren. Starte heute.
+            </TextReveal>
             <p className="text-muted-foreground text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               Schreib uns auf WhatsApp für eine kostenlose, unverbindliche Beratung.
               Du erfährst direkt, wie viele Sitzungen du brauchst und welche Ergebnisse realistisch sind.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <MagneticButton
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -627,13 +694,13 @@ const Index = () => {
               >
                 <MessageCircle className="w-5 h-5" />
                 Termin buchen
-              </a>
-              <a
+              </MagneticButton>
+              <MagneticButton
                 href="tel:+41762208228"
                 className="inline-flex items-center justify-center gap-2 border border-foreground/20 text-foreground px-8 py-4 rounded text-sm font-bold uppercase tracking-wider hover:border-foreground/40 transition-all"
               >
                 Anrufen: +41 76 220 82 28
-              </a>
+              </MagneticButton>
             </div>
             <p className="text-xs text-muted-foreground mt-6">
               Diskret · Ehrlich · Unverbindlich · Antwort meist innerhalb weniger Minuten
