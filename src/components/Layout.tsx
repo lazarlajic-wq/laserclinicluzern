@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 import ScrollProgress from "@/components/premium/ScrollProgress";
-import CursorGlow from "@/components/premium/CursorGlow";
 
 const navLinks = [
   { label: "Behandlungen", href: "/#bereiche" },
@@ -27,8 +26,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Scroll to top on route change (non-hash navigation)
   useEffect(() => {
     setMenuOpen(false);
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
+  // Handle hash scrolling after navigation
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   }, [location]);
 
   const handleNavClick = (href: string) => {
@@ -46,7 +59,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ScrollProgress />
-      <CursorGlow />
       {/* ─── NAV ─── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
