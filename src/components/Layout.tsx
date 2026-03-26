@@ -160,18 +160,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </motion.main>
       </AnimatePresence>
 
-      {/* ─── STICKY MOBILE CTA ─── */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-md border-t border-border p-3 safe-bottom">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-accent text-accent-foreground w-full py-3.5 rounded text-sm font-bold"
-        >
-          <MessageCircle className="w-5 h-5" />
-          Kostenlose Beratung starten
-        </a>
-      </div>
+
 
       {/* ─── FOOTER ─── */}
       <footer className="relative bg-background border-t border-border py-16 md:py-20 px-5 md:px-8 pb-24 lg:pb-16 overflow-hidden">
