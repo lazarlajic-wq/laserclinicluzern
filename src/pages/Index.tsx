@@ -300,7 +300,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
           LÖSUNG – with Progress Ring
@@ -490,7 +490,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="◆" />
 
       {/* ═══════════════════════════════════════════════════
           ABLAUF
@@ -511,11 +511,13 @@ const Index = () => {
               </TextReveal>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 md:gap-6">
+            <div className="relative grid md:grid-cols-3 gap-8 md:gap-6">
+              {/* Vertical timeline line (mobile) */}
+              <div className="absolute left-8 top-16 bottom-16 w-px bg-gradient-to-b from-accent/40 via-accent/20 to-accent/5 md:hidden" />
               {[
-                { num: "01", title: "Kostenlose Beratung", desc: "WhatsApp oder Anruf. Du beschreibst dein Ziel, wir sagen dir ehrlich, was möglich ist." },
-                { num: "02", title: "Behandlung", desc: "30–45 Minuten pro Sitzung. Modernster Diodenlaser. Kühlsystem für maximalen Komfort." },
-                { num: "03", title: "Ergebnis", desc: "Bereits nach der 2. Sitzung sichtbar weniger Haare. Nach 4–6 Sitzungen: bis zu 90% Reduktion." },
+                { num: "01", title: "Kostenlose Beratung", desc: "WhatsApp oder Anruf. Du beschreibst dein Ziel, wir sagen dir ehrlich, was möglich ist.", icon: MessageCircle },
+                { num: "02", title: "Behandlung", desc: "30–45 Minuten pro Sitzung. Modernster Diodenlaser. Kühlsystem für maximalen Komfort.", icon: Zap },
+                { num: "03", title: "Ergebnis", desc: "Bereits nach der 2. Sitzung sichtbar weniger Haare. Nach 4–6 Sitzungen: bis zu 90% Reduktion.", icon: CheckCircle },
               ].map((step, i) => (
                 <motion.div
                   key={i}
@@ -523,13 +525,11 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.2, duration: 0.6 }}
-                  className="relative text-center md:text-left"
+                  className={`relative text-center md:text-left ${i < 2 ? "timeline-connector" : ""}`}
                 >
-                  {i < 2 && (
-                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] right-[-24px] h-px bg-gradient-to-r from-accent/40 to-accent/10" />
-                  )}
-                  <div className="w-16 h-16 rounded-full border-2 border-accent/40 flex items-center justify-center text-accent font-bold text-lg mx-auto md:mx-0 mb-5 glow-gold">
-                    {step.num}
+                  <div className="relative z-10 w-16 h-16 rounded-full border-2 border-accent/40 bg-background flex items-center justify-center mx-auto md:mx-0 mb-5 glow-gold group">
+                    <span className="text-accent font-bold text-lg group-hover:opacity-0 transition-opacity">{step.num}</span>
+                    <step.icon className="w-6 h-6 text-accent absolute opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">{step.desc}</p>
@@ -574,7 +574,7 @@ const Index = () => {
                 <motion.div
                   key={i}
                   variants={staggerItem}
-                  className="relative glass-card border border-border/50 rounded-lg p-6 pt-10 group hover:border-accent/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 quote-mark"
+                  className="relative gradient-border-card glass-card rounded-lg p-6 pt-10 group hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 quote-mark"
                 >
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, j) => (
@@ -616,7 +616,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
           ÜBER UNS / TEAM – with Image Reveal
