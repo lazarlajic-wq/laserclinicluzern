@@ -42,13 +42,17 @@
   }
 
   .light-section {
-    --background: 0 0% 98%;
+    --background: 45 10% 96%;
     --foreground: 0 0% 8%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 8%;
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 40%;
-    --border: 0 0% 88%;
+    --muted: 38 15% 90%;
+    --muted-foreground: 0 0% 35%;
+    --border: 38 20% 85%;
+    --accent: 38 50% 45%;
+    --accent-foreground: 0 0% 100%;
+    background: linear-gradient(180deg, hsl(45 10% 96%), hsl(40 8% 93%));
+    color: hsl(0 0% 8%);
   }
 }
 
@@ -207,6 +211,11 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Nav scroll offset for fixed header */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Sticky CTA spacing */

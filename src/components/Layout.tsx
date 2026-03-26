@@ -45,11 +45,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [location]);
 
   const handleNavClick = (href: string) => {
+    const wasOpen = menuOpen;
     setMenuOpen(false);
     if (href.startsWith("/#")) {
       const id = href.slice(2);
       if (location.pathname === "/") {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const scrollToEl = () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        // Delay scroll on mobile to let menu close animation finish
+        if (wasOpen) {
+          setTimeout(scrollToEl, 350);
+        } else {
+          scrollToEl();
+        }
       } else {
         window.location.href = href;
       }
