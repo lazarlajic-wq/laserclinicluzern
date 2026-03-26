@@ -1,42 +1,41 @@
 
 
-## Fix & Upgrade Plan
+## Max High-End Level -- Letzte Design-Upgrades
 
-### 3 Probleme identifiziert
+Was bereits vorhanden ist: Ken Burns Hero, Gold Particles, Tilt Cards, Animated Counters, Text Reveal, Progress Ring, Magnetic Buttons, Scroll Progress, Noise Textures, Glass Cards, Light Section. Das ist schon viel. Hier die verbleibenden Upgrades die den Unterschied zwischen "gute Seite" und "Agentur-Portfolio-Level" machen:
 
-**1. Navigation funktioniert nicht**
-- Die Section-IDs existieren (`bereiche`, `ablauf`, `resultate`, `ueber-uns`, `kontakt`), aber `scrollIntoView` scrollt das Element hinter die fixe Navbar (80px hoch). Der Inhalt wird verdeckt.
-- Fix: `scroll-margin-top: 80px` auf alle Sections mit IDs setzen in CSS. Alternativ `scrollTo` mit manuellem Offset verwenden.
-- Zusaetzlich: Auf Mobile schliesst `AnimatePresence` das Menu mit einer Animation, die das Scroll-Event blockieren kann. Fix: `setTimeout` von 300ms bevor `scrollIntoView` aufgerufen wird.
+---
 
-**2. Maus-Icon im Hero entfernen**
-- Zeilen 200-209 in `Index.tsx`: Der "Scroll Indicator" (Maus-Pill-Form) wird entfernt.
+### 1. Horizontal Scroll Marquee (Vertrauensleiste)
+Eine endlos scrollende Leiste zwischen Hero und Problem-Sektion mit Begriffen wie "SCHMERZARM · DAUERHAFT · KLINISCHE QUALITAET · 300+ BEHANDLUNGEN · 5.0 GOOGLE". Grosse Uppercase-Typo, Gold-Akzente, sanftes CSS-Marquee. Wirkt sofort wie eine High-End-Brand.
 
-**3. Von 2k auf 15k Webseite -- konkrete Empfehlungen**
+### 2. Smooth Section Reveal (Clip-Path Animation)
+Sektionen kommen nicht nur mit fadeUp rein, sondern mit einem `clipPath`-Reveal von unten nach oben (wie ein Vorhang der sich hebt). Framer-motion `clipPath: "inset(100% 0 0 0)"` zu `"inset(0 0 0 0)"`. Macht einen massiven visuellen Unterschied.
 
-Die Seite hat gute Grundelemente, aber es fehlt an **visueller Abwechslung und Tiefe**. Hier die wirkungsvollsten Upgrades:
+### 3. Parallax Text Layers im Hero
+Hinter dem Haupttext im Hero ein grosses, halbtransparentes "LASER" oder "GLATT" als dekorativer Hintergrund-Text (text-[20vw], opacity 3-5%). Bewegt sich langsamer als der Vordergrund-Text beim Scrollen. Gibt dem Hero extreme Tiefe.
 
-| Upgrade | Warum es wirkt |
-|---------|----------------|
-| **Helle Sektion als Kontrast** | Aktuell ist alles schwarz/dunkel. Eine Sektion (z.B. Resultate oder Ablauf) mit hellem Hintergrund + dunklem Text bricht die Monotonie. Premium-Seiten wechseln bewusst zwischen hell/dunkel. |
-| **Groessere Bilder / Bildwelt** | Die Treatment-Cards sind okay, aber der Ueber-uns-Bereich hat nur ein Foto. Ein Fullwidth-Bild zwischen Sektionen (z.B. nach Ablauf) als visueller Break wirkt sofort hochwertiger. |
-| **Testimonials mit Foto-Avataren** | Die Initialen-Kreise (D, A, M) wirken generisch. Echte Fotos oder zumindest realistischere Placeholder erhoehen Vertrauen massiv. |
-| **Vorher/Nachher Sektion** | Fehlt komplett. Das ist DER Conversion-Trigger fuer Laser-Kliniken. Slider mit Vorher/Nachher-Bildern. |
-| **Video-Element** | Ein kurzes Testvideo oder auch nur ein Play-Button-Overlay auf einem Bild im Ueber-uns-Bereich. Gibt sofort "Agency"-Vibes. |
-| **Mehr Whitespace** | Sections brauchen mehr vertikalen Abstand (py-32 statt py-20 auf Mobile). Gibt der Seite mehr "Luft" und wirkt luxurioeser. |
-| **Sticky Social Proof Bar** | Ein schmaler Balken unter der Navbar: "2'824+ Behandlungen · 5.0 Google · Schweizer Qualitaet" -- verschwindet beim Scrollen. |
-| **Bessere Section-Uebergaenge** | Statt nur GoldDivider: diagonale Cuts oder sanfte Gradient-Uebergaenge zwischen Sektionen. |
-| **Loading Animation aufwerten** | Der aktuelle Ladescreen koennte das Logo animiert einblenden statt nur Text. |
+### 4. Bild mit Reveal-Effekt (Ueber uns)
+Das Ermin-Foto bekommt einen horizontalen Reveal: ein Gold-farbiger Block gleitet von links nach rechts und enthuellt das Bild dahinter. Klassischer Premium-Effekt.
+
+### 5. Interaktive FAQ mit smooth Accordion
+Statt nativer `<details>` ein richtiger animierter Accordion mit framer-motion (height auto-animate + Rotation des Chevrons). Wirkt deutlich polierter.
+
+### 6. Footer-Upgrade
+Groesserer Footer mit einem grossen "Bereit?" Headline darueber, visuell abgetrennt durch einen Gradient. Aktuell ist der Footer funktional aber nicht visuell "premium".
+
+### 7. Sektion-Nummern (Section Counter)
+Jede Sektion bekommt eine grosse, dezente Nummer am Rand (01, 02, 03...) die beim Scrollen sichtbar wird. Subtiler Agentur-Touch.
 
 ---
 
 ### Umsetzung
 
-**Dateien:**
-
 | Datei | Aenderung |
 |-------|-----------|
-| `src/pages/Index.tsx` | Maus-Icon entfernen (Z.200-209), Whitespace erhoehen, eine helle Sektion einbauen, Vorher/Nachher-Platzhalter |
-| `src/components/Layout.tsx` | Nav-Scroll-Fix mit Offset, optional Social-Proof-Bar |
-| `src/index.css` | `scroll-margin-top` fuer Section-IDs, `.light-section` Variablen aktivieren |
+| `src/components/premium/Marquee.tsx` | Neue Komponente: endlos scrollende Vertrauensleiste |
+| `src/components/premium/SectionReveal.tsx` | Wrapper-Komponente mit clipPath-Animation |
+| `src/components/premium/ImageReveal.tsx` | Gold-Block Reveal fuer Bilder |
+| `src/pages/Index.tsx` | Marquee nach Hero, SectionReveal auf 2-3 Sektionen, Parallax-Text im Hero, FAQ zu animiertem Accordion, Section-Nummern, Footer-Headline |
+| `src/index.css` | Marquee-Keyframes, Section-Counter-Styling |
 
