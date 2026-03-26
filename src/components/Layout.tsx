@@ -15,6 +15,36 @@ const navLinks = [
 
 const WHATSAPP_URL = "https://wa.me/41762208228?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Laser-Haarentfernung.";
 
+function SocialProofBar() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY < 200);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <motion.div
+      className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-accent/10 backdrop-blur-sm border-b border-accent/10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -10 }}
+      transition={{ duration: 0.3 }}
+      style={{ pointerEvents: visible ? "auto" : "none" }}
+    >
+      <div className="max-w-7xl mx-auto px-5 flex items-center justify-center gap-4 md:gap-8 h-7 text-[10px] md:text-xs text-muted-foreground font-medium tracking-wide">
+        <span>300+ Behandlungen</span>
+        <span className="text-accent/40">✦</span>
+        <span>5.0 ★ Google</span>
+        <span className="text-accent/40">✦</span>
+        <span className="hidden sm:inline">Schweizer Qualität</span>
+        <span className="hidden sm:inline text-accent/40">✦</span>
+        <span>Spezialisiert auf Männer</span>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -145,8 +175,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
+      {/* ─── SOCIAL PROOF MICRO BAR ─── */}
+      <SocialProofBar />
+
       {/* ─── MAIN ─── */}
-      <main>{children}</main>
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {children}
+        </motion.main>
+      </AnimatePresence>
 
       {/* ─── STICKY MOBILE CTA ─── */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-md border-t border-border p-3 safe-bottom">
@@ -162,8 +205,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-background border-t border-border py-16 md:py-20 px-5 md:px-8 pb-24 lg:pb-16">
-        <div className="max-w-6xl mx-auto">
+      <footer className="relative bg-background border-t border-border py-16 md:py-20 px-5 md:px-8 pb-24 lg:pb-16 overflow-hidden">
+        {/* LCL Monogramm */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <span className="text-[30vw] md:text-[20vw] font-black text-accent/[0.02] leading-none tracking-tighter">
+            LCL
+          </span>
+        </div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid md:grid-cols-4 gap-10 md:gap-8">
             <div className="md:col-span-1">
               <img src={logo} alt="Laser Clinic Luzern" className="h-12 brightness-0 invert mb-4" />
