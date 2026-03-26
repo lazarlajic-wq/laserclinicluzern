@@ -300,7 +300,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
           LÖSUNG – with Progress Ring
@@ -490,7 +490,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="◆" />
 
       {/* ═══════════════════════════════════════════════════
           ABLAUF
@@ -616,7 +616,7 @@ const Index = () => {
         </section>
       </SectionReveal>
 
-      <GoldDivider />
+      <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
           ÜBER UNS / TEAM – with Image Reveal
