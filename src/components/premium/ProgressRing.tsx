@@ -12,8 +12,8 @@ interface ProgressRingProps {
 
 export default function ProgressRing({
   value,
-  size = 140,
-  strokeWidth = 6,
+  size = 120,
+  strokeWidth = 5,
   label,
   sublabel,
   className = "",
@@ -25,38 +25,38 @@ export default function ProgressRing({
   const offset = circumference - (value / 100) * circumference;
 
   return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <svg ref={ref} width={size} height={size} className="rotate-[-90deg]">
-        {/* Background circle */}
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="hsl(var(--border))"
-          strokeWidth={strokeWidth}
-        />
-        {/* Animated progress */}
-        <motion.circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="hsl(var(--accent))"
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          initial={{ strokeDashoffset: circumference }}
-          animate={inView ? { strokeDashoffset: offset } : {}}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
-          style={{ filter: "drop-shadow(0 0 8px hsl(var(--accent) / 0.4))" }}
-        />
-      </svg>
-      <div className="text-center -mt-[calc(50%+10px)] mb-8">
-        <span className="text-2xl md:text-3xl font-bold text-gradient-gold">{label}</span>
+    <div className={`flex flex-col items-center gap-2 ${className}`}>
+      <div className="relative" style={{ width: size, height: size }}>
+        <svg ref={ref} width={size} height={size} className="rotate-[-90deg]">
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke="hsl(var(--border))"
+            strokeWidth={strokeWidth}
+          />
+          <motion.circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke="hsl(var(--accent))"
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            initial={{ strokeDashoffset: circumference }}
+            animate={inView ? { strokeDashoffset: offset } : {}}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+            style={{ filter: "drop-shadow(0 0 8px hsl(var(--accent) / 0.4))" }}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-2xl md:text-3xl font-bold text-gradient-gold">{label}</span>
+        </div>
       </div>
       {sublabel && (
-        <p className="text-xs text-muted-foreground mt-1">{sublabel}</p>
+        <p className="text-xs text-muted-foreground text-center">{sublabel}</p>
       )}
     </div>
   );
