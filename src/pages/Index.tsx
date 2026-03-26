@@ -371,7 +371,7 @@ const Index = () => {
           RESULTATE – Light section
       ═══════════════════════════════════════════════════ */}
       <SectionReveal>
-        <section id="resultate" className="relative py-24 md:py-40 px-5 md:px-8 light-section noise-overlay">
+        <section id="resultate" className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
           <SectionNumber num={sectionNumbers[2]} className="top-8 left-4 md:left-12" />
           <div className="absolute inset-0 radial-gold-glow" />
           <div className="max-w-6xl mx-auto relative z-10">
