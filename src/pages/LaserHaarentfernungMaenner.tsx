@@ -184,10 +184,10 @@ export default function LaserHaarentfernungMaenner() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
-              { value: "2'824+", label: "Behandlungen", icon: TrendingUp },
+              { value: "300+", label: "Behandlungen", icon: TrendingUp },
               { value: "90%", label: "Haarreduktion", icon: Zap },
               { value: "5.0 ★", label: "Google Rating", icon: Star },
-              { value: "8+", label: "Jahre Erfahrung", icon: Award },
+              { value: "2+", label: "Jahre Erfahrung", icon: Award },
             ].map((stat, i) => (
               <motion.div
                 key={i}
