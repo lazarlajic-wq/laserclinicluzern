@@ -145,8 +145,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      {/* ─── SOCIAL PROOF MICRO BAR ─── */}
-      <SocialProofBar />
 
       {/* ─── MAIN ─── */}
       <AnimatePresence mode="wait">
