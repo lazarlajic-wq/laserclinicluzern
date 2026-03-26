@@ -165,6 +165,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <li><Link to="/laser-haarentfernung-maenner-luzern" className="hover:text-foreground transition-colors">Luzern</Link></li>
                 <li><Link to="/laser-haarentfernung-maenner-zuerich" className="hover:text-foreground transition-colors">Zürich</Link></li>
               </ul>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-accent mb-4 mt-6">Ratgeber</h4>
+              <ul className="space-y-2.5 text-sm text-muted-foreground">
+                <li><Link to="/rasieren-oder-lasern-maenner" className="hover:text-foreground transition-colors">Rasieren oder Lasern?</Link></li>
+                <li><Link to="/wie-viele-sitzungen-laser-maenner" className="hover:text-foreground transition-colors">Wie viele Sitzungen?</Link></li>
+                <li><Link to="/eingewachsene-haare-maenner-loesung" className="hover:text-foreground transition-colors">Eingewachsene Haare</Link></li>
+              </ul>
             </div>
 
             <div>
