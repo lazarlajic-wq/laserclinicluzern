@@ -590,16 +590,16 @@ const Index = () => {
             >
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent mb-3 block">Über uns</span>
               <TextReveal as="h2" className="text-3xl md:text-5xl font-black tracking-tight mb-6">
-                Keine Kette. Kein Schema F. Nur Resultate.
+                Ein Studio. Ein Ziel. Dein Ergebnis.
               </TextReveal>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">Ein Studio. Ein Fokus.</strong> Wir sind keine Beauty-Kette mit 20 Standorten.
-                  Wir sind Spezialisten für Laser-Haarentfernung bei Männern.
+                  <strong className="text-foreground">100% spezialisiert auf Männer.</strong> Keine Beauty-Kette, kein Massengeschäft.
+                  Wir machen eine Sache – und die richtig.
                 </p>
                 <p>
-                  8+ Jahre Erfahrung. Über 2'800 Behandlungen. Und ein klares Ziel:
-                  <strong className="text-foreground"> Schnelle, sichtbare Haarfreiheit.</strong>
+                  8+ Jahre Erfahrung. Über 2'800 Behandlungen. Modernste Diodenlaser-Technologie.
+                  <strong className="text-foreground"> Ergebnisse, die du siehst und spürst.</strong>
                 </p>
                 <p>Diskret. Professionell. Auf Augenhöhe.</p>
               </div>
