@@ -109,6 +109,99 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
+
+  /* Noise texture overlay */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Radial gold glow for sections */
+  .radial-gold-glow {
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(38 45% 58% / 0.06) 0%, transparent 70%);
+  }
+
+  .radial-gold-glow-strong {
+    background: radial-gradient(ellipse 50% 40% at 50% 40%, hsl(38 45% 58% / 0.1) 0%, transparent 70%);
+  }
+
+  /* Pulse glow for CTA */
+  .pulse-glow {
+    animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+
+  /* Gold accent stripe */
+  .gold-stripe-left {
+    position: relative;
+  }
+  .gold-stripe-left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, hsl(38 45% 58%), hsl(38 55% 48%));
+    border-radius: 2px;
+  }
+
+  /* Underline animation for links */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: hsl(var(--accent));
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Large decorative quote mark */
+  .quote-mark::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    font-size: 4rem;
+    line-height: 1;
+    color: hsl(var(--accent) / 0.15);
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(38 45% 58% / 0.2), 0 0 40px hsl(38 45% 58% / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(38 45% 58% / 0.4), 0 0 60px hsl(38 45% 58% / 0.15);
+  }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
 
 /* Smooth scrolling */
