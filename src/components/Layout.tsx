@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 import ScrollProgress from "@/components/premium/ScrollProgress";
+import ChatBot from "@/components/ChatBot";
 
 const navLinks = [
   { label: "Behandlungen", href: "/#bereiche" },
@@ -242,6 +243,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+      <ChatBot />
     </div>
   );
 }
