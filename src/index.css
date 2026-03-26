@@ -2,55 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 200 10% 12%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 40 20% 97%;
-    --card-foreground: 200 10% 12%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 200 10% 12%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 160 40% 20%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 40 15% 94%;
-    --secondary-foreground: 200 10% 12%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 40 10% 93%;
-    --muted-foreground: 200 5% 45%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 38 70% 50%;
-    --accent-foreground: 200 10% 10%;
+    --accent: 38 45% 58%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 160 40% 20%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 38 45% 58%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --gold: 38 70% 50%;
-    --gold-light: 38 50% 80%;
-    --green-dark: 160 40% 14%;
-    --green-mid: 160 30% 22%;
-    --cream: 40 30% 97%;
-    --charcoal: 200 10% 12%;
+    --gold: 38 45% 58%;
+    --gold-light: 38 35% 72%;
+    --gold-dark: 38 50% 42%;
+  }
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 200 10% 12%;
-    --sidebar-primary: 160 40% 20%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 15% 94%;
-    --sidebar-accent-foreground: 200 10% 12%;
-    --sidebar-border: 40 15% 88%;
-    --sidebar-ring: 160 40% 20%;
+  .light-section {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
+    --border: 0 0% 88%;
   }
 }
 
@@ -60,31 +58,59 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+  }
+
+  ::selection {
+    background: hsl(38 45% 58% / 0.3);
+    color: hsl(0 0% 100%);
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: 'Playfair Display', serif;
-  }
-  .font-body {
-    font-family: 'Raleway', sans-serif;
-  }
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(38 50% 70%) 100%);
+    background: linear-gradient(135deg, hsl(38 45% 62%) 0%, hsl(38 55% 48%) 50%, hsl(38 45% 62%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
   .bg-dark-section {
-    background: linear-gradient(180deg, hsl(160 40% 14%) 0%, hsl(160 35% 10%) 100%);
+    background: hsl(0 0% 4%);
   }
-  .bg-gradient-cta {
-    background: linear-gradient(135deg, hsl(160 40% 20%) 0%, hsl(160 35% 28%) 100%);
+
+  .bg-darker-section {
+    background: hsl(0 0% 2%);
   }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(38 45% 58% / 0.15), 0 0 80px hsl(38 45% 58% / 0.05);
+  }
+
+  .glow-gold-strong {
+    box-shadow: 0 0 30px hsl(38 45% 58% / 0.3), 0 0 60px hsl(38 45% 58% / 0.1);
+  }
+
+  .border-gold {
+    border-color: hsl(38 45% 58% / 0.3);
+  }
+
+  .line-gold {
+    background: linear-gradient(90deg, transparent, hsl(38 45% 58%), transparent);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sticky CTA spacing */
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
