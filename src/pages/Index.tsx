@@ -122,16 +122,15 @@ const Index = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
           >
-            Nie wieder rasieren.{" "}
-            <span className="text-gradient-gold">Dauerhaft glatte Haut</span>{" "}
-            in 4–6 Sitzungen.
+            Du rasierst noch?{" "}
+            <span className="text-gradient-gold">Wir lösen das dauerhaft.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            Laser-Haarentfernung speziell für Männer in der Schweiz. Modernste Technologie. Diskret. Effizient. Dauerhaft.
+            Glatte Haut in 4–6 Sitzungen statt 12–15. Modernste Diodenlaser-Technologie speziell für Männer in der Schweiz.
           </motion.p>
 
           <motion.div
