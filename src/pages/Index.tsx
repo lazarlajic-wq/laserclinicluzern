@@ -224,14 +224,6 @@ const Index = () => {
             </MagneticButton>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp} initial="hidden" animate="visible" custom={5}
-            className="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-10 text-xs text-muted-foreground"
-          >
-            <span className="flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5 text-accent" /> 300+ Behandlungen</span>
-            <span className="flex items-center gap-1.5"><Star className="w-3.5 h-3.5 text-accent fill-accent" /> 5.0 Google Bewertung</span>
-            <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-accent" /> 2+ Jahre Erfahrung</span>
-          </motion.div>
         </motion.div>
       </section>
 

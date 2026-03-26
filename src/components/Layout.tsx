@@ -15,36 +15,6 @@ const navLinks = [
 
 const WHATSAPP_URL = "https://wa.me/41762208228?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Laser-Haarentfernung.";
 
-function SocialProofBar() {
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY < 200);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <motion.div
-      className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-accent/10 backdrop-blur-sm border-b border-accent/10"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -10 }}
-      transition={{ duration: 0.3 }}
-      style={{ pointerEvents: visible ? "auto" : "none" }}
-    >
-      <div className="max-w-7xl mx-auto px-5 flex items-center justify-center gap-4 md:gap-8 h-7 text-[10px] md:text-xs text-muted-foreground font-medium tracking-wide">
-        <span>300+ Behandlungen</span>
-        <span className="text-accent/40">✦</span>
-        <span>5.0 ★ Google</span>
-        <span className="text-accent/40">✦</span>
-        <span className="hidden sm:inline">Schweizer Qualität</span>
-        <span className="hidden sm:inline text-accent/40">✦</span>
-        <span>Spezialisiert auf Männer</span>
-      </div>
-    </motion.div>
-  );
-}
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -175,8 +145,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      {/* ─── SOCIAL PROOF MICRO BAR ─── */}
-      <SocialProofBar />
 
       {/* ─── MAIN ─── */}
       <AnimatePresence mode="wait">
