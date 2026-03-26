@@ -197,16 +197,6 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="w-5 h-8 border-2 border-foreground/20 rounded-full flex justify-center pt-1.5">
-            <div className="w-1 h-2 bg-accent rounded-full" />
-          </div>
-        </motion.div>
       </section>
 
       <GoldDivider />
@@ -214,7 +204,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           PROBLEM SECTION – with gold stripe cards & Lucide icons
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-32 px-5 md:px-8 noise-overlay">
+      <section className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
         <div className="absolute inset-0 radial-gold-glow" />
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
@@ -273,7 +263,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           LÖSUNG – with Progress Ring
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-32 px-5 md:px-8 bg-card noise-overlay">
+      <section className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <motion.div
@@ -344,7 +334,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           RESULTATE – Enhanced stats
       ═══════════════════════════════════════════════════ */}
-      <section id="resultate" className="relative py-20 md:py-32 px-5 md:px-8 noise-overlay">
+      <section id="resultate" className="relative py-24 md:py-40 px-5 md:px-8 light-section noise-overlay">
         <div className="absolute inset-0 radial-gold-glow" />
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
@@ -395,7 +385,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           BEREICHE – Treatment cards with image overlay
       ═══════════════════════════════════════════════════ */}
-      <section id="bereiche" className="relative py-20 md:py-32 px-5 md:px-8 bg-card noise-overlay">
+      <section id="bereiche" className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -458,7 +448,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           ABLAUF – Horizontal on desktop with connecting lines
       ═══════════════════════════════════════════════════ */}
-      <section id="ablauf" className="relative py-20 md:py-32 px-5 md:px-8 noise-overlay">
+      <section id="ablauf" className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
         <div className="absolute inset-0 radial-gold-glow" />
         <div className="max-w-5xl mx-auto relative z-10">
           <motion.div
@@ -507,7 +497,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           REVIEWS – with decorative quotes
       ═══════════════════════════════════════════════════ */}
-      <section id="ueber-uns" className="relative py-20 md:py-32 px-5 md:px-8 bg-card noise-overlay">
+      <section id="ueber-uns" className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -581,7 +571,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           ÜBER UNS / TEAM
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-32 px-5 md:px-8 noise-overlay">
+      <section className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <motion.div
@@ -626,7 +616,7 @@ const Index = () => {
       {/* ═══════════════════════════════════════════════════
           FAQ
       ═══════════════════════════════════════════════════ */}
-      <section className="relative py-20 md:py-32 px-5 md:px-8 bg-card noise-overlay">
+      <section className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
         <div className="max-w-3xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}

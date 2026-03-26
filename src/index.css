@@ -209,6 +209,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Nav scroll offset for fixed header */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* Sticky CTA spacing */
 body {
   padding-bottom: env(safe-area-inset-bottom, 0);
