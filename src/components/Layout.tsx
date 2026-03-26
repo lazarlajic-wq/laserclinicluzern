@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
+import ScrollProgress from "@/components/premium/ScrollProgress";
 
 const navLinks = [
   { label: "Behandlungen", href: "/#bereiche" },

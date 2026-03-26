@@ -103,6 +103,12 @@
   .line-gold {
     background: linear-gradient(90deg, transparent, hsl(38 45% 58%), transparent);
   }
+
+  .glass-card {
+    background: hsl(0 0% 7% / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
 }
 
 /* Smooth scrolling */
