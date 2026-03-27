@@ -3,46 +3,47 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    --background: 155 30% 4%;
-    --foreground: 60 10% 95%;
+    --background: 160 40% 3%;
+    --foreground: 45 20% 95%;
 
-    --card: 155 25% 7%;
-    --card-foreground: 60 10% 95%;
+    --card: 160 35% 6%;
+    --card-foreground: 45 20% 95%;
 
-    --popover: 155 25% 7%;
-    --popover-foreground: 60 10% 95%;
+    --popover: 160 35% 6%;
+    --popover-foreground: 45 20% 95%;
 
-    --primary: 60 10% 98%;
-    --primary-foreground: 155 30% 4%;
+    --primary: 45 20% 98%;
+    --primary-foreground: 160 40% 3%;
 
-    --secondary: 155 20% 12%;
-    --secondary-foreground: 60 10% 95%;
+    --secondary: 160 30% 10%;
+    --secondary-foreground: 45 20% 95%;
 
-    --muted: 155 15% 12%;
-    --muted-foreground: 155 5% 55%;
+    --muted: 160 25% 10%;
+    --muted-foreground: 160 10% 50%;
 
-    --accent: 42 55% 55%;
-    --accent-foreground: 155 30% 4%;
+    --accent: 38 65% 52%;
+    --accent-foreground: 160 40% 3%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 155 15% 14%;
-    --input: 155 15% 14%;
-    --ring: 42 55% 55%;
+    --border: 160 20% 12%;
+    --input: 160 20% 12%;
+    --ring: 38 65% 52%;
 
     --radius: 0.5rem;
 
-    --gold: 42 55% 55%;
-    --gold-light: 42 45% 72%;
-    --gold-dark: 42 60% 40%;
+    --gold: 38 65% 52%;
+    --gold-light: 38 55% 70%;
+    --gold-dark: 38 70% 38%;
 
-    --green: 155 30% 25%;
-    --green-light: 155 25% 35%;
-    --green-dark: 155 35% 8%;
+    --green: 160 40% 22%;
+    --green-light: 160 35% 32%;
+    --green-dark: 160 45% 6%;
   }
 }
 
@@ -57,62 +58,62 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   ::selection {
-    background: hsl(42 55% 55% / 0.3);
-    color: hsl(60 10% 98%);
+    background: hsl(38 65% 52% / 0.3);
+    color: hsl(45 20% 98%);
   }
 }
 
 @layer utilities {
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(42 55% 62%) 0%, hsl(42 65% 48%) 50%, hsl(42 55% 62%) 100%);
+    background: linear-gradient(135deg, hsl(38 60% 65%) 0%, hsl(38 70% 45%) 50%, hsl(38 60% 65%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-green {
-    background: linear-gradient(135deg, hsl(155 35% 40%) 0%, hsl(155 45% 30%) 50%, hsl(155 35% 40%) 100%);
+    background: linear-gradient(135deg, hsl(160 40% 35%) 0%, hsl(160 50% 25%) 50%, hsl(160 40% 35%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-dark-section {
-    background: hsl(155 30% 4%);
+    background: hsl(160 40% 3%);
   }
 
   .bg-darker-section {
-    background: hsl(155 35% 2%);
+    background: hsl(160 45% 2%);
   }
 
   .glow-gold {
-    box-shadow: 0 0 40px hsl(42 55% 55% / 0.15), 0 0 80px hsl(42 55% 55% / 0.05);
+    box-shadow: 0 0 40px hsl(38 65% 52% / 0.15), 0 0 80px hsl(38 65% 52% / 0.05);
   }
 
   .glow-gold-strong {
-    box-shadow: 0 0 30px hsl(42 55% 55% / 0.3), 0 0 60px hsl(42 55% 55% / 0.1);
+    box-shadow: 0 0 30px hsl(38 65% 52% / 0.3), 0 0 60px hsl(38 65% 52% / 0.1);
   }
 
   .glow-green {
-    box-shadow: 0 0 40px hsl(155 35% 25% / 0.2), 0 0 80px hsl(155 35% 25% / 0.08);
+    box-shadow: 0 0 40px hsl(160 40% 22% / 0.25), 0 0 80px hsl(160 40% 22% / 0.1);
   }
 
   .border-gold {
-    border-color: hsl(42 55% 55% / 0.3);
+    border-color: hsl(38 65% 52% / 0.3);
   }
 
   .line-gold {
-    background: linear-gradient(90deg, transparent, hsl(42 55% 55%), transparent);
+    background: linear-gradient(90deg, transparent, hsl(38 65% 52%), transparent);
   }
 
   .glass-card {
-    background: hsl(155 25% 7% / 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: hsl(160 35% 6% / 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .noise-overlay {
@@ -130,15 +131,15 @@
   }
 
   .radial-gold-glow {
-    background: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(42 55% 55% / 0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(38 65% 52% / 0.06) 0%, transparent 70%);
   }
 
   .radial-gold-glow-strong {
-    background: radial-gradient(ellipse 50% 40% at 50% 40%, hsl(42 55% 55% / 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse 50% 40% at 50% 40%, hsl(38 65% 52% / 0.1) 0%, transparent 70%);
   }
 
   .radial-green-glow {
-    background: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(155 35% 25% / 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(160 40% 22% / 0.1) 0%, transparent 70%);
   }
 
   .pulse-glow {
@@ -155,7 +156,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, hsl(42 55% 55%), hsl(42 65% 45%));
+    background: linear-gradient(180deg, hsl(38 65% 52%), hsl(38 70% 38%));
     border-radius: 2px;
   }
 
@@ -213,13 +214,13 @@
   .gradient-border-card:hover::before {
     background: conic-gradient(
       from var(--shimmer-angle, 0deg),
-      hsl(42 55% 55% / 0.1) 0%,
-      hsl(42 65% 60% / 0.6) 15%,
-      hsl(42 55% 55% / 0.1) 30%,
+      hsl(38 65% 52% / 0.1) 0%,
+      hsl(38 70% 58% / 0.6) 15%,
+      hsl(38 65% 52% / 0.1) 30%,
       hsl(var(--border)) 50%,
-      hsl(42 55% 55% / 0.1) 70%,
-      hsl(42 65% 60% / 0.6) 85%,
-      hsl(42 55% 55% / 0.1) 100%
+      hsl(38 65% 52% / 0.1) 70%,
+      hsl(38 70% 58% / 0.6) 85%,
+      hsl(38 65% 52% / 0.1) 100%
     );
     animation: shimmerRotate 3s linear infinite;
   }
@@ -234,16 +235,16 @@
     left: calc(50% + 48px);
     right: -24px;
     height: 2px;
-    background: linear-gradient(90deg, hsl(42 55% 55% / 0.5), hsl(42 55% 55% / 0.1));
+    background: linear-gradient(90deg, hsl(38 65% 52% / 0.5), hsl(38 65% 52% / 0.1));
   }
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(42 55% 55% / 0.2), 0 0 40px hsl(42 55% 55% / 0.1);
+    box-shadow: 0 0 20px hsl(38 65% 52% / 0.2), 0 0 40px hsl(38 65% 52% / 0.1);
   }
   50% {
-    box-shadow: 0 0 30px hsl(42 55% 55% / 0.4), 0 0 60px hsl(42 55% 55% / 0.15);
+    box-shadow: 0 0 30px hsl(38 65% 52% / 0.4), 0 0 60px hsl(38 65% 52% / 0.15);
   }
 }
 

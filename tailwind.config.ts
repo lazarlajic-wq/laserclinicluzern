@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -90,8 +91,8 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(42 55% 55% / 0.2)" },
-          "50%": { boxShadow: "0 0 40px hsl(42 55% 55% / 0.4)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(38 65% 52% / 0.2)" },
+          "50%": { boxShadow: "0 0 40px hsl(38 65% 52% / 0.4)" },
         },
         "shimmer": {
           "0%": { backgroundPosition: "-200% 0" },
