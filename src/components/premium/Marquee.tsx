@@ -4,11 +4,12 @@ const items = [
   "SCHMERZARM",
   "DAUERHAFT",
   "KLINISCHE QUALITÄT",
-  "300+ BEHANDLUNGEN",
+  "2800+ BEHANDLUNGEN",
   "5.0 GOOGLE",
   "SPEZIALISIERT AUF MÄNNER",
   "SCHWEIZER QUALITÄT",
   "DIODENLASER",
+  "8 JAHRE ERFAHRUNG",
 ];
 
 export default function Marquee() {
