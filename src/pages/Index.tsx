@@ -145,7 +145,7 @@ const Index = () => {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(155_30%_4%/0.8)] via-[hsl(155_30%_4%/0.6)] to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(160_40%_3%/0.85)] via-[hsl(160_40%_3%/0.6)] to-background" />
           <div className="absolute inset-0 noise-overlay" />
         </div>
 
@@ -471,7 +471,7 @@ const Index = () => {
                         width={800}
                         height={1024}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(155_30%_4%/0.9)] via-[hsl(155_30%_4%/0.3)] to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(160_40%_3%/0.9)] via-[hsl(160_40%_3%/0.3)] to-transparent" />
                       <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-500" />
                       <div className="absolute bottom-0 left-0 right-0 p-5">
                         <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{area.title}</h3>
