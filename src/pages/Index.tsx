@@ -5,7 +5,7 @@ import {
   ArrowRight, MessageCircle, CheckCircle, XCircle, ChevronRight,
   Clock, Shield, Zap, Star, Award, Users, TrendingUp, Droplets, Scissors, Flame, AlertCircle
 } from "lucide-react";
-import heroImg from "@/assets/hero-men.jpg";
+import heroImg from "@/assets/hero-clinic.jpg";
 import areaRuecken from "@/assets/area-ruecken.jpg";
 import areaBrust from "@/assets/area-brust.jpg";
 import areaBart from "@/assets/area-bart.jpg";
@@ -58,7 +58,7 @@ const reviews = [
   {
     name: "Marco S.",
     text: "Endlich keine eingewachsenen Haare mehr. Nach 4 Sitzungen war das Ergebnis schon krass. Lohnt sich zu 100%.",
-    area: "Bartkontur",
+    area: "Rücken",
   },
 ];
 
@@ -133,29 +133,27 @@ const Index = () => {
       />
 
       {/* ═══════════════════════════════════════════════════
-          HERO – Cinematic with Ken Burns + Parallax Text
+          HERO – Cinematic
       ═══════════════════════════════════════════════════ */}
       <section ref={heroRef} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-        {/* Ken Burns Background */}
         <div className="absolute inset-0">
           <img
             src={heroImg}
-            alt="Laser Haarentfernung für Männer"
+            alt="Laser Haarentfernung für Männer – Premium Klinik"
             className="w-full h-full object-cover"
             style={{ animation: "kenBurns 20s ease-in-out infinite alternate" }}
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(155_30%_4%/0.8)] via-[hsl(155_30%_4%/0.6)] to-background" />
           <div className="absolute inset-0 noise-overlay" />
         </div>
 
-        {/* Parallax background text */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
           style={{ y: parallaxY }}
         >
-          <span className="text-[18vw] md:text-[20vw] font-black text-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
+          <span className="text-[18vw] md:text-[20vw] font-black text-foreground/[0.02] leading-none tracking-tighter whitespace-nowrap">
             LASER
           </span>
         </motion.div>
@@ -181,15 +179,15 @@ const Index = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.0] tracking-tight"
               delay={0.3}
             >
-              Du rasierst noch?
+              Nie wieder rasieren.
             </TextReveal>
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.7 }}
-              className="text-gradient-gold text-5xl md:text-7xl lg:text-8xl font-black leading-[1.0] tracking-tight block mt-2"
+              className="text-gradient-gold text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight block mt-4"
             >
-              Wir lösen das.
+              Dauerhafte Haarentfernung für Männer.
             </motion.span>
           </div>
 
@@ -197,7 +195,7 @@ const Index = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
           >
-            Glatte Haut in 4–6 Sitzungen. Modernste Diodenlaser-Technologie speziell für Männer.
+            Ohne Rasierpickel. Ohne Stoppeln. Ohne eingewachsene Haare. Glatte Haut in 4–6 Sitzungen.
           </motion.p>
 
           <motion.div
@@ -211,24 +209,21 @@ const Index = () => {
               className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all pulse-glow"
             >
               <MessageCircle className="w-5 h-5" />
-              Termin sichern
-            </MagneticButton>
-            <MagneticButton
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-foreground/20 text-foreground px-8 py-4 rounded text-sm font-bold uppercase tracking-wider hover:border-foreground/40 hover:bg-foreground/5 transition-all"
-            >
-              Kostenlose Beratung
-              <ArrowRight className="w-4 h-4" />
+              Kostenlose Probesitzung sichern
             </MagneticButton>
           </motion.div>
 
+          <motion.p
+            variants={fadeUp} initial="hidden" animate="visible" custom={5}
+            className="text-xs text-accent/80 mt-4 font-medium"
+          >
+            Begrenzt auf 25 Plätze – noch 4 Termine verfügbar
+          </motion.p>
         </motion.div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          MARQUEE – Trust Strip
+          MARQUEE
       ═══════════════════════════════════════════════════ */}
       <Marquee />
 
@@ -238,7 +233,7 @@ const Index = () => {
       <SectionReveal>
         <section className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
           <SectionNumber num={sectionNumbers[0]} className="top-8 left-4 md:left-12" />
-          <div className="absolute inset-0 radial-gold-glow" />
+          <div className="absolute inset-0 radial-green-glow" />
           <div className="max-w-6xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -259,10 +254,10 @@ const Index = () => {
               viewport={{ once: true }}
             >
               {[
-                { title: "Tägliches Rasieren", desc: "Jeden Tag das gleiche Ritual. Zeitverschwendung, die nie aufhört." },
+                { title: "Tägliches Rasieren", desc: "Jeden Morgen das gleiche nervige Ritual. Zeitverschwendung, die nie aufhört." },
                 { title: "Eingewachsene Haare", desc: "Rote Punkte, Entzündungen, Narben. Besonders am Rücken und Intimbereich." },
-                { title: "Schwitzen & Geruch", desc: "Dichte Körperbehaarung verstärkt Schweissbildung und Geruch." },
-                { title: "Hautirritationen", desc: "Rasierbrand, Juckreiz, pickelige Haut. Egal welche Methode." },
+                { title: "Rasierpickel", desc: "Egal welche Klinge, welches Gel – deine Haut reagiert jedes Mal gereizt." },
+                { title: "Stoppeln & Juckreiz", desc: "Schon nach einem Tag kratzt und juckt es wieder. Ein Teufelskreis." },
               ].map((item, i) => {
                 const Icon = problemIcons[i];
                 return (
@@ -286,7 +281,7 @@ const Index = () => {
               viewport={{ once: true }} transition={{ delay: 0.4 }}
               className="text-center text-muted-foreground mt-12 text-base md:text-lg max-w-2xl mx-auto"
             >
-              Du willst deine Haare loswerden. <strong className="text-foreground">Wir machen das.</strong>
+              Du willst deine Haare loswerden – <strong className="text-foreground">dauerhaft.</strong>
             </motion.p>
           </div>
         </section>
@@ -295,7 +290,7 @@ const Index = () => {
       <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
-          LÖSUNG – with Progress Ring
+          LÖSUNG
       ═══════════════════════════════════════════════════ */}
       <SectionReveal>
         <section className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
@@ -312,9 +307,9 @@ const Index = () => {
                 </TextReveal>
                 <div className="space-y-6">
                   {[
-                    { icon: Zap, title: "Hochleistungs-Diodenlaser", desc: "Kein IPL, kein Studio-Laser. Medizinische Klinikniveau-Technologie für tiefe, dicke Männerhaare." },
+                    { icon: Zap, title: "Hochleistungs-Diodenlaser", desc: "Gezielte Zerstörung der Haarwurzel. Kein IPL, kein Studio-Laser. Medizinisches Klinikniveau." },
                     { icon: Clock, title: "4–6 statt 12–15 Sitzungen", desc: "Unsere Technologie arbeitet effizienter. Du sparst Zeit und Geld." },
-                    { icon: Shield, title: "Individueller Behandlungsplan", desc: "Jeder Haut- und Haartyp wird individuell analysiert und behandelt." },
+                    { icon: Shield, title: "Ergebnisse mit Garantie", desc: "Bis zu 90% weniger Haare – oder Geld zurück. So überzeugt sind wir." },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -368,7 +363,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
-          RESULTATE – Light section
+          RESULTATE
       ═══════════════════════════════════════════════════ */}
       <SectionReveal>
         <section id="resultate" className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
@@ -397,10 +392,10 @@ const Index = () => {
               viewport={{ once: true }}
             >
               {[
-                { value: "300+", label: "Behandlungen", icon: TrendingUp },
+                { value: "2800+", label: "Behandlungen", icon: TrendingUp },
                 { value: "90%", label: "Haarreduktion", icon: Zap },
                 { value: "5.0 ★", label: "Google Rating", icon: Star },
-                { value: "2+", label: "Jahre Erfahrung", icon: Award },
+                { value: "8+", label: "Jahre Erfahrung", icon: Award },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -415,6 +410,18 @@ const Index = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* Guarantee badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ delay: 0.3 }}
+              className="mt-12 flex justify-center"
+            >
+              <div className="inline-flex items-center gap-3 border border-accent/30 rounded-full px-6 py-3 bg-accent/5">
+                <Shield className="w-5 h-5 text-accent" />
+                <span className="text-sm font-semibold text-foreground">Ergebnisse mit Garantie – sonst Geld zurück</span>
+              </div>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
@@ -422,7 +429,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
-          BEREICHE – Treatment cards
+          BEREICHE
       ═══════════════════════════════════════════════════ */}
       <SectionReveal>
         <section id="bereiche" className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
@@ -464,7 +471,7 @@ const Index = () => {
                         width={800}
                         height={1024}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(155_30%_4%/0.9)] via-[hsl(155_30%_4%/0.3)] to-transparent" />
                       <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-500" />
                       <div className="absolute bottom-0 left-0 right-0 p-5">
                         <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{area.title}</h3>
@@ -490,7 +497,7 @@ const Index = () => {
       <SectionReveal>
         <section id="ablauf" className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
           <SectionNumber num={sectionNumbers[4]} className="top-8 left-4 md:left-12" />
-          <div className="absolute inset-0 radial-gold-glow" />
+          <div className="absolute inset-0 radial-green-glow" />
           <div className="max-w-5xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
@@ -504,10 +511,9 @@ const Index = () => {
             </motion.div>
 
             <div className="relative grid md:grid-cols-3 gap-8 md:gap-6">
-              {/* Vertical timeline line (mobile) */}
               <div className="absolute left-8 top-16 bottom-16 w-px bg-gradient-to-b from-accent/40 via-accent/20 to-accent/5 md:hidden" />
               {[
-                { num: "01", title: "Kostenlose Beratung", desc: "WhatsApp oder Anruf. Du beschreibst dein Ziel, wir sagen dir ehrlich, was möglich ist.", icon: MessageCircle },
+                { num: "01", title: "Kostenlose Beratung", desc: "Wir finden zuerst heraus, ob Laser bei dir überhaupt funktioniert – denn nicht jeder ist geeignet.", icon: MessageCircle },
                 { num: "02", title: "Behandlung", desc: "30–45 Minuten pro Sitzung. Modernster Diodenlaser. Kühlsystem für maximalen Komfort.", icon: Zap },
                 { num: "03", title: "Ergebnis", desc: "Bereits nach der 2. Sitzung sichtbar weniger Haare. Nach 4–6 Sitzungen: bis zu 90% Reduktion.", icon: CheckCircle },
               ].map((step, i) => (
@@ -528,6 +534,23 @@ const Index = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* CTA after steps */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ delay: 0.4 }}
+              className="text-center mt-14"
+            >
+              <MagneticButton
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Buche jetzt – finde heraus ob Laser bei dir funktioniert
+              </MagneticButton>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
@@ -611,7 +634,7 @@ const Index = () => {
       <GoldDivider symbol="✦" />
 
       {/* ═══════════════════════════════════════════════════
-          ÜBER UNS / TEAM – with Image Reveal
+          ÜBER UNS
       ═══════════════════════════════════════════════════ */}
       <section className="relative py-24 md:py-40 px-5 md:px-8 noise-overlay">
         <SectionNumber num={sectionNumbers[6]} className="top-8 left-4 md:left-12" />
@@ -631,7 +654,7 @@ const Index = () => {
                   Wir machen eine Sache – und die richtig.
                 </p>
                 <p>
-                  2+ Jahre Erfahrung. Über 300 Behandlungen. Modernste Diodenlaser-Technologie.
+                  8 Jahre Erfahrung. Über 2800 Behandlungen. Modernste Diodenlaser-Technologie.
                   <strong className="text-foreground"> Ergebnisse, die du siehst und spürst.</strong>
                 </p>
                 <p>Diskret. Professionell. Auf Augenhöhe.</p>
@@ -653,7 +676,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
-          FAQ – Animated Accordion
+          FAQ
       ═══════════════════════════════════════════════════ */}
       <SectionReveal>
         <section className="relative py-24 md:py-40 px-5 md:px-8 bg-card noise-overlay">
@@ -678,12 +701,11 @@ const Index = () => {
       <GoldDivider />
 
       {/* ═══════════════════════════════════════════════════
-          FINAL CTA – Premium Footer with "Bereit?" headline
+          FINAL CTA
       ═══════════════════════════════════════════════════ */}
       <section id="kontakt" className="relative py-28 md:py-48 px-5 md:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-accent/5" />
         <div className="absolute inset-0 radial-gold-glow-strong" />
-        {/* Large decorative text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <span className="text-[25vw] font-black text-accent/[0.03] leading-none tracking-tighter">
             BEREIT?
@@ -697,18 +719,13 @@ const Index = () => {
           >
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent mb-3 block">Starte jetzt</span>
             <TextReveal as="h2" className="text-3xl md:text-6xl font-black tracking-tight mb-6">
-              Hör auf mit Rasieren.
+              Sichere dir jetzt deine kostenlose Probesitzung.
             </TextReveal>
-            <motion.span
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }} transition={{ delay: 0.5 }}
-              className="text-gradient-gold text-3xl md:text-6xl font-black tracking-tight block mb-8"
-            >
-              Starte heute.
-            </motion.span>
-            <p className="text-muted-foreground text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-              Schreib uns auf WhatsApp für eine kostenlose, unverbindliche Beratung.
-              Du erfährst direkt, wie viele Sitzungen du brauchst und welche Ergebnisse realistisch sind.
+            <p className="text-muted-foreground text-base md:text-lg mb-6 max-w-xl mx-auto leading-relaxed">
+              Schreib uns auf WhatsApp. Du erfährst direkt, wie viele Sitzungen du brauchst und welche Ergebnisse realistisch sind.
+            </p>
+            <p className="text-sm text-accent font-semibold mb-10">
+              Nur 25 Plätze verfügbar – noch 4 frei
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <MagneticButton
@@ -718,7 +735,7 @@ const Index = () => {
                 className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all pulse-glow"
               >
                 <MessageCircle className="w-5 h-5" />
-                Termin buchen
+                Kostenlose Probesitzung sichern
               </MagneticButton>
               <MagneticButton
                 href="tel:+41762208228"
