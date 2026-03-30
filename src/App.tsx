@@ -10,6 +10,7 @@ import LaserHaarentfernungMaenner from "./pages/LaserHaarentfernungMaenner";
 import LaserRuecken from "./pages/LaserRuecken";
 import LaserBrust from "./pages/LaserBrust";
 import LaserIntim from "./pages/LaserIntim";
+import LaserGanzkoerper from "./pages/LaserGanzkoerper";
 import LaserBart from "./pages/LaserBart";
 import LaserLuzern from "./pages/LaserLuzern";
 import LaserZuerich from "./pages/LaserZuerich";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/laser-ruecken-maenner" element={<LaserRuecken />} />
             <Route path="/laser-brust-maenner" element={<LaserBrust />} />
             <Route path="/laser-intim-maenner" element={<LaserIntim />} />
+            <Route path="/laser-ganzkoerper-maenner" element={<LaserGanzkoerper />} />
             <Route path="/laser-bart-maenner" element={<LaserBart />} />
             <Route path="/laser-haarentfernung-maenner-luzern" element={<LaserLuzern />} />
             <Route path="/laser-haarentfernung-maenner-zuerich" element={<LaserZuerich />} />
