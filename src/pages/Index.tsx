@@ -66,6 +66,7 @@ const treatmentAreas = [
   { title: "Rücken", img: areaRuecken, href: "/laser-ruecken-maenner", desc: "Grosse Fläche, starke Haare – unser Spezialgebiet." },
   { title: "Brust", img: areaBrust, href: "/laser-brust-maenner", desc: "Glatte Brust ohne tägliches Rasieren." },
   { title: "Intimbereich", img: areaIntim, href: "/laser-intim-maenner", desc: "Diskret, professionell, dauerhaft." },
+  { title: "Ganzkörper", img: areaRuecken, href: "/laser-haarentfernung-maenner", desc: "Komplett haarfrei – von Kopf bis Fuss." },
   { title: "Bartkontur", img: areaBart, href: "/laser-bart-maenner", desc: "Saubere Konturen ohne Rasurbrand." },
 ];
 
@@ -219,6 +220,17 @@ const Index = () => {
           >
             Begrenzt auf 25 Plätze – noch 4 Termine verfügbar
           </motion.p>
+
+          {/* Guarantee Badge in Hero */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="visible" custom={6}
+            className="mt-8 flex justify-center"
+          >
+            <div className="inline-flex items-center gap-3 border border-accent/40 rounded-full px-5 py-2.5 bg-accent/10 backdrop-blur-sm">
+              <Shield className="w-5 h-5 text-accent" />
+              <span className="text-xs md:text-sm font-bold text-accent uppercase tracking-wider">Ergebnisse mit Garantie – sonst Geld zurück</span>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -283,6 +295,14 @@ const Index = () => {
             >
               Du willst deine Haare loswerden – <strong className="text-foreground">dauerhaft.</strong>
             </motion.p>
+
+            {/* CTA Problem */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-center mt-8">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Schluss damit – Termin sichern
+              </MagneticButton>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
@@ -356,6 +376,14 @@ const Index = () => {
                 <div className="absolute -bottom-2 -left-2 w-16 h-16 border-b-2 border-l-2 border-accent/20 rounded-bl-lg" />
               </motion.div>
             </div>
+
+            {/* CTA Lösung */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-center mt-14">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Jetzt kostenlos beraten lassen
+              </MagneticButton>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
@@ -422,6 +450,14 @@ const Index = () => {
                 <span className="text-sm font-semibold text-foreground">Ergebnisse mit Garantie – sonst Geld zurück</span>
               </div>
             </motion.div>
+
+            {/* CTA Resultate */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-center mt-8">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Diese Ergebnisse auch für dich – Termin buchen
+              </MagneticButton>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
@@ -450,7 +486,7 @@ const Index = () => {
             </motion.div>
 
             <motion.div
-              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -484,6 +520,14 @@ const Index = () => {
                   </TiltCard>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* CTA Bereiche */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-center mt-12">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Welcher Bereich? Schreib uns
+              </MagneticButton>
             </motion.div>
           </div>
         </section>
@@ -626,6 +670,14 @@ const Index = () => {
                   <span className="text-xs font-semibold text-muted-foreground">{badge.label}</span>
                 </div>
               ))}
+            </motion.div>
+
+            {/* CTA Reviews */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-center mt-12">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Überzeug dich selbst – Probesitzung buchen
+              </MagneticButton>
             </motion.div>
           </div>
         </section>
