@@ -376,6 +376,14 @@ const Index = () => {
                 <div className="absolute -bottom-2 -left-2 w-16 h-16 border-b-2 border-l-2 border-accent/20 rounded-bl-lg" />
               </motion.div>
             </div>
+
+            {/* CTA Lösung */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="text-center mt-14">
+              <MagneticButton href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-accent/90 transition-all">
+                <MessageCircle className="w-4 h-4" /> Jetzt kostenlos beraten lassen
+              </MagneticButton>
+            </motion.div>
           </div>
         </section>
       </SectionReveal>
