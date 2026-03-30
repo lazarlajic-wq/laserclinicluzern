@@ -219,6 +219,17 @@ const Index = () => {
           >
             Begrenzt auf 25 Plätze – noch 4 Termine verfügbar
           </motion.p>
+
+          {/* Guarantee Badge in Hero */}
+          <motion.div
+            variants={fadeUp} initial="hidden" animate="visible" custom={6}
+            className="mt-8 flex justify-center"
+          >
+            <div className="inline-flex items-center gap-3 border border-accent/40 rounded-full px-5 py-2.5 bg-accent/10 backdrop-blur-sm">
+              <Shield className="w-5 h-5 text-accent" />
+              <span className="text-xs md:text-sm font-bold text-accent uppercase tracking-wider">Ergebnisse mit Garantie – sonst Geld zurück</span>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
