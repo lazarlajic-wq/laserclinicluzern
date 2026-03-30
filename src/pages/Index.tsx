@@ -10,6 +10,7 @@ import areaRuecken from "@/assets/area-ruecken.jpg";
 import areaBrust from "@/assets/area-brust.jpg";
 import areaBart from "@/assets/area-bart.jpg";
 import areaIntim from "@/assets/area-intim.jpg";
+import areaGanzkoerper from "@/assets/area-ganzkoerper.jpg";
 import erminImg from "@/assets/ermin.jpg";
 
 import AnimatedCounter from "@/components/premium/AnimatedCounter";
