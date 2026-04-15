@@ -1,12 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 export default function Datenschutz() {
+  useEffect(() => { document.title = "Datenschutz – Laser Clinic Luzern"; }, []);
   return (
     <>
-      <Helmet>
-        <title>Datenschutz – Laser Clinic Luzern</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
       <div className="min-h-screen pt-28 pb-20 px-5 md:px-8">
         <div className="max-w-3xl mx-auto prose prose-invert prose-sm">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Datenschutzerklärung</h1>
