@@ -230,6 +230,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link to="/datenschutz" className="hover:text-foreground transition-colors">Datenschutz</Link>
             </div>
           </div>
+          <p className="mt-4 text-center text-xs text-muted-foreground/40">
+            Made by <a href="https://blackframe-media.ch" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">blackframe-media.ch</a>
+          </p>
         </div>
       </footer>
     </div>
