@@ -17,6 +17,8 @@ import LaserZuerich from "./pages/LaserZuerich";
 import BlogRasierenOderLasern from "./pages/BlogRasierenOderLasern";
 import BlogSitzungen from "./pages/BlogSitzungen";
 import BlogEingewachseneHaare from "./pages/BlogEingewachseneHaare";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/rasieren-oder-lasern-maenner" element={<BlogRasierenOderLasern />} />
             <Route path="/wie-viele-sitzungen-laser-maenner" element={<BlogSitzungen />} />
             <Route path="/eingewachsene-haare-maenner-loesung" element={<BlogEingewachseneHaare />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
