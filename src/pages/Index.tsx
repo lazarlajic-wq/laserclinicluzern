@@ -48,22 +48,19 @@ const fadeUp = {
 const reviews = [
   {
     name: "Daniel W.",
-    text: "Ich wurde gut über die Behandlung aufgeklärt. Bereits nach der ersten Sitzung sichtbare Ergebnisse. Absolut professionell.",
-    area: "Rücken & Brust",
+    text: "[Originaltext aus Google folgt – bitte einfügen]",
     date: "vor 2 Monaten",
     rating: 5,
   },
   {
     name: "André R.",
-    text: "Vom ersten Moment an sehr wohlgefühlt. Diskreter und professioneller Service. Kann ich jedem Mann empfehlen.",
-    area: "Intimbereich",
+    text: "[Originaltext aus Google folgt – bitte einfügen]",
     date: "vor 3 Wochen",
     rating: 5,
   },
   {
     name: "Marco S.",
-    text: "Endlich keine eingewachsenen Haare mehr. Nach 4 Sitzungen war das Ergebnis schon krass. Lohnt sich zu 100%.",
-    area: "Rücken",
+    text: "[Originaltext aus Google folgt – bitte einfügen]",
     date: "vor 1 Monat",
     rating: 5,
   },
