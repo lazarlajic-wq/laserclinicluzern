@@ -703,7 +703,6 @@ const Index = () => {
                     ))}
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{r.text}"</p>
-                  <div className="text-[11px] uppercase tracking-wider text-accent/80 font-semibold">{r.area}</div>
                 </motion.div>
               ))}
             </motion.div>
