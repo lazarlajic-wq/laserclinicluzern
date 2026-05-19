@@ -50,18 +50,26 @@ const reviews = [
     name: "Daniel W.",
     text: "Ich wurde gut über die Behandlung aufgeklärt. Bereits nach der ersten Sitzung sichtbare Ergebnisse. Absolut professionell.",
     area: "Rücken & Brust",
+    date: "vor 2 Monaten",
+    rating: 5,
   },
   {
     name: "André R.",
     text: "Vom ersten Moment an sehr wohlgefühlt. Diskreter und professioneller Service. Kann ich jedem Mann empfehlen.",
     area: "Intimbereich",
+    date: "vor 3 Wochen",
+    rating: 5,
   },
   {
     name: "Marco S.",
     text: "Endlich keine eingewachsenen Haare mehr. Nach 4 Sitzungen war das Ergebnis schon krass. Lohnt sich zu 100%.",
     area: "Rücken",
+    date: "vor 1 Monat",
+    rating: 5,
   },
 ];
+
+const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=laserclinicluzern";
 
 const treatmentAreas = [
   { title: "Rücken", img: areaRuecken, href: "/laser-ruecken-maenner", desc: "Grosse Fläche, starke Haare – unser Spezialgebiet." },
