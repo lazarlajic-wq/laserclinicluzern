@@ -138,6 +138,26 @@ const Index = () => {
             ],
             aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "47" },
             priceRange: "$$",
+            review: [
+              {
+                "@type": "Review",
+                author: { "@type": "Person", name: "Daniel W." },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody: "Ich wurde gut über die Behandlung aufgeklärt. Bereits nach der ersten Sitzung sichtbare Ergebnisse. Absolut professionell.",
+              },
+              {
+                "@type": "Review",
+                author: { "@type": "Person", name: "André R." },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody: "Vom ersten Moment an sehr wohlgefühlt. Diskreter und professioneller Service. Kann ich jedem Mann empfehlen.",
+              },
+              {
+                "@type": "Review",
+                author: { "@type": "Person", name: "Marco S." },
+                reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                reviewBody: "Endlich keine eingewachsenen Haare mehr. Nach 4 Sitzungen war das Ergebnis schon krass. Lohnt sich zu 100%.",
+              },
+            ],
           }),
         }}
       />
