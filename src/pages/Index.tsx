@@ -642,13 +642,32 @@ const Index = () => {
               viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="text-center mb-16"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent mb-3 block">Kundenstimmen</span>
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent mb-3 block">Google Bewertungen</span>
               <TextReveal as="h2" className="text-3xl md:text-6xl font-black tracking-tight mb-4">
                 Was Männer über uns sagen.
               </TextReveal>
-              <p className="text-muted-foreground max-w-xl mx-auto">
-                Echte Bewertungen von echten Kunden. Keine Fake-Reviews.
-              </p>
+              <div className="flex flex-col items-center gap-3">
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-accent/30 bg-background/60 backdrop-blur">
+                  <svg className="w-5 h-5" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+                    <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/>
+                    <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.2-8l-6.5 5C9.6 39.6 16.2 44 24 44z"/>
+                    <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.6l6.2 5.2C40.9 35.3 44 30 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+                  </svg>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold tracking-tight">5.0</span>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-4 h-4 text-accent fill-accent" />
+                      ))}
+                    </div>
+                  </div>
+                  <span className="text-xs text-muted-foreground hidden sm:inline">· 47 Rezensionen</span>
+                </div>
+                <p className="text-muted-foreground max-w-xl mx-auto text-sm">
+                  Echte Bewertungen, verifiziert über Google.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -662,25 +681,50 @@ const Index = () => {
                 <motion.div
                   key={i}
                   variants={staggerItem}
-                  className="relative gradient-border-card glass-card rounded-lg p-6 pt-10 group hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 quote-mark"
+                  className="relative gradient-border-card glass-card rounded-lg p-6 pt-6 group hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300"
                 >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => (
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/30 flex items-center justify-center text-accent font-bold text-base">
+                        {r.name[0]}
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold leading-tight">{r.name}</div>
+                        <div className="text-[11px] text-muted-foreground">{r.date}</div>
+                      </div>
+                    </div>
+                    <svg className="w-5 h-5 opacity-80" viewBox="0 0 48 48" aria-label="Google">
+                      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+                      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"/>
+                      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.2-8l-6.5 5C9.6 39.6 16.2 44 24 44z"/>
+                      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.6l6.2 5.2C40.9 35.3 44 30 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+                    </svg>
+                  </div>
+                  <div className="flex gap-0.5 mb-3">
+                    {[...Array(r.rating)].map((_, j) => (
                       <Star key={j} className="w-4 h-4 text-accent fill-accent" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{r.text}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">
-                        {r.name[0]}
-                      </div>
-                      <span className="text-sm font-semibold">{r.name}</span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">{r.area}</span>
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">"{r.text}"</p>
+                  <div className="text-[11px] uppercase tracking-wider text-accent/80 font-semibold">{r.area}</div>
                 </motion.div>
               ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ delay: 0.2 }}
+              className="text-center mt-8 mb-12"
+            >
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors underline-offset-4 hover:underline"
+              >
+                Alle Bewertungen auf Google ansehen
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </motion.div>
 
             <motion.div
