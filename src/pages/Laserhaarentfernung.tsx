@@ -101,7 +101,7 @@ const SectionNumber = ({ num, className }: { num: string; className?: string }) 
   </motion.span>
 );
 
-const Index = () => {
+const Laserhaarentfernung = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -875,4 +875,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Laserhaarentfernung;
