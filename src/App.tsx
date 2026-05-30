@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
+import Laserhaarentfernung from "./pages/Laserhaarentfernung";
 import LaserHaarentfernungMaenner from "./pages/LaserHaarentfernungMaenner";
 import LaserRuecken from "./pages/LaserRuecken";
 import LaserBrust from "./pages/LaserBrust";
@@ -33,6 +34,7 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/laserhaarentfernung" element={<Laserhaarentfernung />} />
             <Route path="/laser-haarentfernung-maenner" element={<LaserHaarentfernungMaenner />} />
             <Route path="/laser-ruecken-maenner" element={<LaserRuecken />} />
             <Route path="/laser-brust-maenner" element={<LaserBrust />} />
