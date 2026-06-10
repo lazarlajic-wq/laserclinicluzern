@@ -49,7 +49,7 @@ export default function Blog() {
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-accent transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-xs text-foreground/80 hover:text-accent transition-colors mb-6"
             >
               <ArrowLeft className="w-3 h-3" />
               Zurück zur Startseite
@@ -58,10 +58,10 @@ export default function Blog() {
             <span className="block text-xs font-bold uppercase tracking-[0.3em] text-accent mb-4">
               Magazin
             </span>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+            <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight text-foreground">
               Wissen, Ratgeber & Insights
             </h1>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-foreground/90 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               Alles rund um Laser-Haarentfernung für Männer – fundiert, ehrlich
               und auf den Punkt. Direkt aus unserer Praxis in Luzern.
             </p>
