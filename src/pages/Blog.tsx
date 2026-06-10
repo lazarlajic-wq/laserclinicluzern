@@ -79,32 +79,49 @@ export default function Blog() {
 
       {/* Override Soro embed colors for dark theme readability */}
       <style>{`
+        /* Make Soro embed text readable on dark theme without painting dark bars */
         #soro-blog, #soro-blog * {
           color: hsl(var(--foreground)) !important;
-          border-color: hsl(var(--foreground) / 0.15) !important;
+          background-color: transparent !important;
+          background-image: none !important;
+          border-color: hsl(var(--foreground) / 0.12) !important;
+          text-decoration: none !important;
         }
         #soro-blog h1, #soro-blog h2, #soro-blog h3, #soro-blog h4, #soro-blog h5, #soro-blog h6 {
           color: hsl(var(--foreground)) !important;
-          font-family: 'Playfair Display', serif !important;
+          font-family: 'Playfair Display', Georgia, serif !important;
+          font-weight: 600 !important;
         }
-        #soro-blog p, #soro-blog li, #soro-blog span, #soro-blog div {
-          color: hsl(var(--foreground) / 0.9) !important;
+        #soro-blog p, #soro-blog li, #soro-blog span {
+          color: hsl(var(--foreground) / 0.85) !important;
+        }
+        #soro-blog time,
+        #soro-blog [class*="date"],
+        #soro-blog [class*="muted"],
+        #soro-blog [class*="gray"],
+        #soro-blog [class*="slate"] {
+          color: hsl(var(--foreground) / 0.65) !important;
+          font-size: 0.8rem !important;
         }
         #soro-blog a {
+          color: inherit !important;
+          text-decoration: none !important;
+          transition: color 0.2s ease;
+        }
+        #soro-blog a:hover,
+        #soro-blog a:hover * {
           color: hsl(var(--accent)) !important;
-          text-decoration: underline;
         }
-        #soro-blog a:hover {
-          color: hsl(var(--accent) / 0.8) !important;
-        }
-        #soro-blog time, #soro-blog .text-muted, #soro-blog [class*="muted"], #soro-blog [class*="gray"], #soro-blog [class*="slate"] {
-          color: hsl(var(--foreground) / 0.7) !important;
-        }
-        #soro-blog article, #soro-blog .card, #soro-blog [class*="card"], #soro-blog [class*="bg-"] {
-          background-color: hsl(var(--foreground) / 0.04) !important;
+        #soro-blog article,
+        #soro-blog [class*="card"],
+        #soro-blog [class*="post"] {
+          background-color: hsl(160 35% 6% / 0.6) !important;
+          border: 1px solid hsl(var(--foreground) / 0.08) !important;
+          border-radius: 0.5rem !important;
         }
         #soro-blog img {
           opacity: 1 !important;
+          border-radius: 0.375rem;
         }
       `}</style>
     </>
