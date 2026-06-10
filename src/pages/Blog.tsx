@@ -76,6 +76,37 @@ export default function Blog() {
           <div id="soro-blog" />
         </div>
       </section>
+
+      {/* Override Soro embed colors for dark theme readability */}
+      <style>{`
+        #soro-blog, #soro-blog * {
+          color: hsl(var(--foreground)) !important;
+          border-color: hsl(var(--foreground) / 0.15) !important;
+        }
+        #soro-blog h1, #soro-blog h2, #soro-blog h3, #soro-blog h4, #soro-blog h5, #soro-blog h6 {
+          color: hsl(var(--foreground)) !important;
+          font-family: 'Playfair Display', serif !important;
+        }
+        #soro-blog p, #soro-blog li, #soro-blog span, #soro-blog div {
+          color: hsl(var(--foreground) / 0.9) !important;
+        }
+        #soro-blog a {
+          color: hsl(var(--accent)) !important;
+          text-decoration: underline;
+        }
+        #soro-blog a:hover {
+          color: hsl(var(--accent) / 0.8) !important;
+        }
+        #soro-blog time, #soro-blog .text-muted, #soro-blog [class*="muted"], #soro-blog [class*="gray"], #soro-blog [class*="slate"] {
+          color: hsl(var(--foreground) / 0.7) !important;
+        }
+        #soro-blog article, #soro-blog .card, #soro-blog [class*="card"], #soro-blog [class*="bg-"] {
+          background-color: hsl(var(--foreground) / 0.04) !important;
+        }
+        #soro-blog img {
+          opacity: 1 !important;
+        }
+      `}</style>
     </>
   );
 }
