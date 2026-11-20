@@ -1,5 +1,11 @@
 # Google Search Console setup
 
+## Automatischer Ratgeber
+- [ ] Freigabe für direkt ausgeliefertes Artikel-HTML und automatische Sitemap einholen.
+- [ ] RSS serverseitig mit einstündigem Cache und letztem erfolgreichen Stand anbinden.
+- [ ] Übersicht, Artikelseiten, SEO, Navigation und Footer ergänzen, ohne bestehende Inhalte zu ändern.
+- [ ] Leeren Feed, 404, ausgeliefertes HTML, Sitemap sowie Desktop und Mobil prüfen; keine Testartikel veröffentlichen.
+
 ## Besucherbericht
 - [x] Verfügbaren Messbeginn und monatliche Besuchs- und Herkunftsdaten ermitteln.
 - [x] Vergleichbare Veränderungen berechnen und hochwertiges PDF erstellen.
