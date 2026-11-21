@@ -1,16 +1,21 @@
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
+
+type Particle = { id: number; x: number; y: number; size: number; duration: number; delay: number };
 
 export default function GoldParticles() {
-  const particles = useMemo(() =>
-    Array.from({ length: 12 }, (_, i) => ({
+  // Random positions are created in the browser only, so server and browser HTML match.
+  const [particles, setParticles] = useState<Particle[]>([]);
+  useEffect(() => {
+    setParticles(Array.from({ length: 12 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 3 + 1,
       duration: Math.random() * 8 + 6,
       delay: Math.random() * 4,
-    })), []);
+    })));
+  }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">

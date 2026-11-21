@@ -32,9 +32,9 @@ export default function LoadingScreen() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-xl font-black tracking-[0.2em] uppercase text-foreground">
+            <div className="font-display text-xl font-black tracking-[0.2em] uppercase text-foreground">
               Laser Clinic
-            </h1>
+            </div>
             <p className="text-xs tracking-[0.3em] uppercase text-accent mt-1">
               Luzern
             </p>

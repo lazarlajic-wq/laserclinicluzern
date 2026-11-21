@@ -1,0 +1,10 @@
+{
+  "customizations": [
+    { "token": "brand color tokens", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "gold and green color scales", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "Inter and Playfair Display fonts", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "custom animations", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "brand effect utilities", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "anchor scroll offset", "source": "src/index.css", "reappliedIn": "src/styles.css" }
+  ]
+}

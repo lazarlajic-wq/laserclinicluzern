@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "@/lib/router-compat";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, MessageCircle } from "lucide-react";
@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Ergebnisse", href: "/#resultate" },
   { label: "Über uns", href: "/#ueber-uns" },
   { label: "Kontakt", href: "/#kontakt" },
+  { label: "Ratgeber", href: "/ratgeber" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/41762208228?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Laser-Haarentfernung.";
@@ -20,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -61,6 +63,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       } else {
         window.location.href = href;
       }
+    } else {
+      navigate(href);
     }
   };
 
@@ -197,6 +201,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
               <h4 className="text-sm font-bold uppercase tracking-wider text-accent mb-4 mt-6">Ratgeber</h4>
               <ul className="space-y-2.5 text-sm text-muted-foreground">
+                <li><Link to="/ratgeber" className="hover:text-foreground transition-colors">Ratgeber</Link></li>
                 <li><Link to="/rasieren-oder-lasern-maenner" className="hover:text-foreground transition-colors">Rasieren oder Lasern?</Link></li>
                 <li><Link to="/wie-viele-sitzungen-laser-maenner" className="hover:text-foreground transition-colors">Wie viele Sitzungen?</Link></li>
                 <li><Link to="/eingewachsene-haare-maenner-loesung" className="hover:text-foreground transition-colors">Eingewachsene Haare</Link></li>

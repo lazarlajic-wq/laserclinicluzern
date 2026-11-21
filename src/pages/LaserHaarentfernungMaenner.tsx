@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import {
   MessageCircle, CheckCircle, ChevronRight, Clock, Shield, Zap, Star,
   Award, Users, TrendingUp, ArrowRight, XCircle

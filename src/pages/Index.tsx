@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import {
   ArrowRight, MessageCircle, CheckCircle, XCircle, ChevronRight,
   Clock, Shield, Zap, Star, Award, Users, TrendingUp, Droplets, Scissors, Flame, AlertCircle
@@ -87,7 +87,7 @@ const faqItems = [
   { q: "Ist die Behandlung sicher?", a: "Ja. Wir arbeiten mit zertifizierten medizinischen Geräten und geschultem Fachpersonal. Die Behandlung ist seit Jahren etabliert und sicher." },
 ];
 
-const sectionNumbers = ["01", "02", "03", "04", "05", "06", "07", "08"];
+const sectionNumbers = ["01", "02", "03", "04", "05", "06", "07", "08"] as const;
 
 const SectionNumber = ({ num, className }: { num: string; className?: string }) => (
   <motion.span
@@ -297,7 +297,7 @@ const Index = () => {
                 { title: "Rasierpickel", desc: "Egal welche Klinge, welches Gel – deine Haut reagiert jedes Mal gereizt." },
                 { title: "Stoppeln & Juckreiz", desc: "Schon nach einem Tag kratzt und juckt es wieder. Ein Teufelskreis." },
               ].map((item, i) => {
-                const Icon = problemIcons[i];
+                const Icon = problemIcons[i] ?? Scissors;
                 return (
                   <motion.div
                     key={i}

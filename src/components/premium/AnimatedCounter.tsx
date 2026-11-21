@@ -10,11 +10,11 @@ function parseNumber(val: string): { num: number; prefix: string; suffix: string
   // Extract numeric part
   const match = val.match(/^([^\d]*?)([\d'.]+)(.*)$/);
   if (!match) return { num: 0, prefix: "", suffix: val, decimals: 0 };
-  const prefix = match[1];
-  const numStr = match[2].replace(/'/g, "");
-  const suffix = match[3];
+  const prefix = match[1] ?? "";
+  const numStr = (match[2] ?? "").replace(/'/g, "");
+  const suffix = match[3] ?? "";
   const num = parseFloat(numStr);
-  const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
+  const decimals = numStr.includes(".") ? (numStr.split(".")[1] ?? "").length : 0;
   return { num, prefix, suffix, decimals };
 }
 
